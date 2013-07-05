@@ -33,3 +33,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# cmsRun output/ tests
+testAnalysis/patRefSel_diLep_cfg_*.*

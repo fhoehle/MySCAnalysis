@@ -21,7 +21,7 @@ git checkout V00-03
 cd $CMSSW_BASE
 git clone git@github.com:fhoehle/MyCMSSWAnalysisTools.git
 cd MyCMSSWAnalysisTools
-git checkout V00-02
+git checkout V00-03
 #
 cd $CMSSW_BASE
 

@@ -12,6 +12,7 @@ if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
   echo "missing CMSSW_BASE"
 fi
 cd $CMSSW_BASE
+set -e
 # di lep selection
 git clone git@github.com:fhoehle/DiLeptonicSelection.git
 cd DiLeptonicSelection

@@ -4,7 +4,7 @@ import sys,imp,subprocess,os,getopt,re
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import testSamples
-opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp'])
+opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help'])
 print sys.argv
 cfgFileName=None
 numProcesses=2
@@ -18,6 +18,9 @@ for opt,arg in opts:
  if opt in ("--noTimeStamp"):
    noTimeStamp = True
    sys.argv.remove("--noTimeStamp")
+ if opt in ("--help"):
+   print 'python runAnalysis.py --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
+   sys.exit(0)
 options ={}
 options["maxEvents"]=1000
 options["outputPath"]=""

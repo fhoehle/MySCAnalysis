@@ -15,7 +15,7 @@ cd $CMSSW_BASE
 # di lep selection
 git clone git@github.com:fhoehle/DiLeptonicSelection.git
 cd DiLeptonicSelection
-git checkout V00-03
+git checkout V00-04
 ./install/installMyFWK.sh
 # tools
 cd $CMSSW_BASE

@@ -25,7 +25,7 @@ cd $CMSSW_BASE
 set -e
 # di lep selection
 getGitPackage "DiLeptonicSelection" 
-git checkout V00-06
+git checkout V00-07
 ./install/installMyFWK.sh
 cd $CMSSW_BASE
 # tools

@@ -3,8 +3,8 @@ pkgs=(
   "DiLeptonicSelection ./ V00-07 ./install/installMyFWK.sh" 
   "MyCMSSWAnalysisTools ./ V00-03"
 )
-echo " first "${pkgs[0]}" next  "${pkgs[1]}
-
+cmsswVer=CMSSW_4_2_8_patch7
+###################
 function getGitPackage {
 
 if [ -d "$1" ]; then
@@ -18,10 +18,8 @@ else
 fi
   
 }
-cmsswVer=CMSSW_4_2_8_patch7
 
-
-echo "Installing SC analysis "
+echo "Installing/Updating SC analysis "
 #
 if [ "X$SCRAM_ARCH" != "Xslc5_amd64_gcc434" ]; then 
   echo "missing SCRAM_ARCH"

@@ -1,10 +1,18 @@
 #!/bin/bash
+pkgs=(
+  "DiLeptonicSelection ./ V00-07" 
+  "MyCMSSWAnalysisTools ./ V00-03"
+)
+echo " first "${pkgs[0]}" next  "${pkgs[1]}
+
 function getGitPackage {
-echo "getting "$1
+
 if [ -d "$1" ]; then
+  echo "updating "$1
   cd $1
   git fetch
 else
+  echo "installing "$1
   git clone git@github.com:fhoehle/$1.git
   cd $1
 fi
@@ -23,14 +31,12 @@ if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
 fi
 cd $CMSSW_BASE
 set -e
-# di lep selection
-getGitPackage "DiLeptonicSelection" 
-git checkout V00-07
-./install/installMyFWK.sh
-cd $CMSSW_BASE
-# tools
-getGitPackage "MyCMSSWAnalysisTools"
-git checkout V00-03
-#
-cd $CMSSW_BASE
+# install my packages
+for idx in ${!pkgs[*]}; do
+  cd $CMSSW_BASE/`echo ${pkgs[$idx]} | awk '{print $2}'`
+  getGitPackage `echo ${pkgs[$idx]} | awk '{print $1}'`
+  git checkout `echo ${pkgs[$idx]} | awk '{print $3}'`
+  cd $CMSSW_BASE
+done
+
 

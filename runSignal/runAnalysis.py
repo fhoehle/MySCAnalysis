@@ -1,6 +1,6 @@
 # run cmssw analysis
 import FWCore.ParameterSet.Config as cms
-import sys,imp,subprocess,os,getopt,re
+import sys,imp,subprocess,os,getopt,re,signal
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import signalSamples

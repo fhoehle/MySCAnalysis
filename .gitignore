@@ -37,3 +37,4 @@ nosetests.xml
 # cmsRun output/ tests/logs
 testAnalysis/patRefSel_diLep_cfg_*.*
 *.log
+*.pdf

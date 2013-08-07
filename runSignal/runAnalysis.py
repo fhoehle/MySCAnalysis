@@ -42,34 +42,30 @@ if options["outputPath"] != os.getenv("PWD"):
 cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
 cfg = myTools.createWorkDirCpCfg(options["outputPath"],cfg,timeStamp)
 cfg = myTools.compileCfg(cfg,options,addOptions)
-#tmpCfg = options["outputPath"]+ os.path.splitext(os.path.basename(cfg))[0]+"_"+timeStamp + os.path.splitext(os.path.basename(cfg))[1]
-#os.makedirs(os.path.dirname(tmpCfg))
-#shutil.copyfile(cfg,tmpCfg)
-#remainingOptions = removeAddOptions(options.keys(),addOptions)
-#if remainingOptions != '' and not remainingOptions.isspace():
-#  tmpCfgDumpPython = os.path.splitext(tmpCfg)[0]+"_addedDumpLine"+os.path.splitext(tmpCfg)[1]
-#  tmpCfgAddLine = open(tmpCfg,"a");tmpCfgAddLine.write('myTmpFile = open ("'+tmpCfgDumpPython+'","w"); myTmpFile.write(process.dumpPython()); myTmpFile.close()');tmpCfgAddLine.close()
-#  import subprocess
-#  buildFile = subprocess.Popen(["python "+tmpCfg+" "+removeAddOptions(options.keys(),addOptions)],shell=True,stdout=subprocess.PIPE,env=os.environ)
-#  buildFile.wait()
-#  errorcode = buildFile.returncode
-#  if errorcode != 0:
-#    sys.exit("failed building config with "+str(errorcode))
-#    cfg = tmpCfgDumpPython
-#  else:
-#    print "python cfg creation done"
-#else:
-#  cfg = tmpCfg
 ### json output
 bookKeeping = myTools.bookKeeping()
 ### start processing sample
+runGrid = True
 processSample = myTools.processSample(cfg)
 for postfix,filename in [ (p,f) for p,f in signalSamples.testFiles.iteritems()]: 
   sample = myTools.sample(filename,postfix,int(options["maxEvents"]))
   processSample.applyChanges(sample,True,options["outputPath"])
   bookKeeping.numInputEvts(processSample.tmpCfgFileLoaded,postfix)
   print "processing ",postfix," ",filename,"  ",options["outputPath"]
-  processSample.runSample(sample,True,options["outputPath"])
+  if not runGrid:
+    processSample.runSample(sample,True,options["outputPath"])
+  else:
+    processSample.setOutputFilesGrid()
+    processSample.createNewCfg(sample,True,options["outputPath"])
+    sys.path.append(os.getenv('CMSSW_BASE')+os.path.sep+'MyCMSSWAnalysisTools')
+    import CrabTools
+    crabP = CrabTools.crabProcess(postfix,processSample,sample,options["outputPath"],timeStamp,addGridDir="test")
+    crabP.createCrabCfg()
+    crabP.crabCfg["CMSSW"]["total_number_of_events"]=100
+    crabP.crabCfg["CMSSW"]["number_of_jobs"]= 1
+    crabCfgFilename = crabP.createCrabDir()
+    crabP.writeCrabCfg()
+    crabP.executeCrabCommand("-create") 
 processSample.end()
 ## save bookKeeping
 bookKeeping.save(options["outputPath"],timeStamp)

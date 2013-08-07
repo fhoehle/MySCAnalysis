@@ -4,7 +4,7 @@ def removeAddOptions(toRemove,options):
    options = re.sub(key+'=[^\ ]*','',options)
   return options
 import FWCore.ParameterSet.Config as cms
-import sys,imp,subprocess,os,getopt,re,signal
+import sys,imp,subprocess,os,getopt,re,signal,json
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import signalSamples
@@ -60,11 +60,17 @@ if remainingOptions != '' and not remainingOptions.isspace():
     print "python cfg creation done"
 else:
   cfg = tmpCfg
+### json output
+bookKeeping = myTools.bookKeeping()
 ### start processing sample
 processSample = myTools.processSample(cfg)
 for postfix,filename in [ (p,f) for p,f in signalSamples.testFiles.iteritems()]: 
   sample = myTools.sample(filename,postfix,int(options["maxEvents"]))
+  processSample.applyChanges(sample,True,options["outputPath"])
+  bookKeeping.numInputEvts(processSample.tmpCfgFileLoaded,postfix)
   print "processing ",postfix," ",filename,"  ",options["outputPath"]
   processSample.runSample(sample,True,options["outputPath"])
 processSample.end()
+## save bookKeeping
+bookKeeping.save(options["outputPath"],timeStamp)
 #processSample =  myTools.processSample('../DiLeptonicSelection/patRefSel_diLep_cfg.py')

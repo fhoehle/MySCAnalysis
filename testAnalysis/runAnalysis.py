@@ -24,6 +24,7 @@ for opt,arg in opts:
 options ={}
 options["maxEvents"]=1000
 options["outputPath"]=""
+timeStamp = None
 for opt in addOptions.split():
   reOpt = re.match('([^=]*)=([^=]*)',opt)
   if options.has_key(reOpt.group(1)):
@@ -34,11 +35,18 @@ for opt in addOptions.split():
       print options["outputPath"]," before"
       options["outputPath"] = options["outputPath"].rstrip('/')  
       print options["outputPath"]," after"
-    options["outputPath"]+= "_"+datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')+'/' 
+    timeStamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
+    options["outputPath"]+= "_"+timeStamp+'/' 
 processSample =  myTools.processSample('../../DiLeptonicSelection/patRefSel_diLep_cfg.py')
+### json output
+bookKeeping = myTools.bookKeeping()
+####
 for postfix,filename in [ (p,f) for p,f in testSamples.testFiles.iteritems()]: 
   sample = myTools.sample(filename,postfix,int(options["maxEvents"]))
+  processSample.applyChanges(sample,True,options["outputPath"])
+  bookKeeping.numInputEvts(processSample.tmpCfgFileLoaded,postfix)
   print "processing ",postfix," ",filename,"  "
   processSample.runSample(sample,True,options["outputPath"])
 processSample.end()
-#processSample =  myTools.processSample('../DiLeptonicSelection/patRefSel_diLep_cfg.py')
+##
+bookKeeping.save(options["outputPath"]+'/',timeStamp)

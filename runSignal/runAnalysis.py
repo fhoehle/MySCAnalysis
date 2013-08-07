@@ -28,8 +28,7 @@ for opt,arg in opts:
 options ={}
 options["maxEvents"]=1000
 options["outputPath"]=os.getenv("PWD")
-import datetime,time
-timeStamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
+timeStamp = myTools.getTimeStamp()
 for opt in addOptions.split():
   reOpt = re.match('([^=]*)=([^=]*)',opt)
   if options.has_key(reOpt.group(1)):
@@ -40,26 +39,27 @@ if options["outputPath"] != os.getenv("PWD"):
     print options["outputPath"]
 ## preparing cfg with additional options
 #make tmp copy
-import shutil
 cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
-tmpCfg = options["outputPath"]+ os.path.splitext(os.path.basename(cfg))[0]+"_"+timeStamp + os.path.splitext(os.path.basename(cfg))[1]
-os.makedirs(os.path.dirname(tmpCfg))
-shutil.copyfile(cfg,tmpCfg)
-remainingOptions = removeAddOptions(options.keys(),addOptions)
-if remainingOptions != '' and not remainingOptions.isspace():
-  tmpCfgDumpPython = os.path.splitext(tmpCfg)[0]+"_addedDumpLine"+os.path.splitext(tmpCfg)[1]
-  tmpCfgAddLine = open(tmpCfg,"a");tmpCfgAddLine.write('myTmpFile = open ("'+tmpCfgDumpPython+'","w"); myTmpFile.write(process.dumpPython()); myTmpFile.close()');tmpCfgAddLine.close()
-  import subprocess
-  buildFile = subprocess.Popen(["python "+tmpCfg+" "+removeAddOptions(options.keys(),addOptions)],shell=True,stdout=subprocess.PIPE,env=os.environ)
-  buildFile.wait()
-  errorcode = buildFile.returncode
-  if errorcode != 0:
-    sys.exit("failed building config with "+str(errorcode))
-    cfg = tmpCfgDumpPython
-  else:
-    print "python cfg creation done"
-else:
-  cfg = tmpCfg
+cfg = myTools.createWorkDirCpCfg(options["outputPath"],cfg,timeStamp)
+cfg = myTools.compileCfg(cfg,options,addOptions)
+#tmpCfg = options["outputPath"]+ os.path.splitext(os.path.basename(cfg))[0]+"_"+timeStamp + os.path.splitext(os.path.basename(cfg))[1]
+#os.makedirs(os.path.dirname(tmpCfg))
+#shutil.copyfile(cfg,tmpCfg)
+#remainingOptions = removeAddOptions(options.keys(),addOptions)
+#if remainingOptions != '' and not remainingOptions.isspace():
+#  tmpCfgDumpPython = os.path.splitext(tmpCfg)[0]+"_addedDumpLine"+os.path.splitext(tmpCfg)[1]
+#  tmpCfgAddLine = open(tmpCfg,"a");tmpCfgAddLine.write('myTmpFile = open ("'+tmpCfgDumpPython+'","w"); myTmpFile.write(process.dumpPython()); myTmpFile.close()');tmpCfgAddLine.close()
+#  import subprocess
+#  buildFile = subprocess.Popen(["python "+tmpCfg+" "+removeAddOptions(options.keys(),addOptions)],shell=True,stdout=subprocess.PIPE,env=os.environ)
+#  buildFile.wait()
+#  errorcode = buildFile.returncode
+#  if errorcode != 0:
+#    sys.exit("failed building config with "+str(errorcode))
+#    cfg = tmpCfgDumpPython
+#  else:
+#    print "python cfg creation done"
+#else:
+#  cfg = tmpCfg
 ### json output
 bookKeeping = myTools.bookKeeping()
 ### start processing sample

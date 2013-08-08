@@ -45,7 +45,7 @@ cfg = myTools.compileCfg(cfg,options,addOptions)
 ### json output
 bookKeeping = myTools.bookKeeping()
 ### start processing sample
-runGrid = True
+runGrid = True 
 processSample = myTools.processSample(cfg)
 for postfix,filename in [ (p,f) for p,f in signalSamples.testFiles.iteritems()]: 
   sample = myTools.sample(filename,postfix,int(options["maxEvents"]))
@@ -59,7 +59,7 @@ for postfix,filename in [ (p,f) for p,f in signalSamples.testFiles.iteritems()]:
     processSample.createNewCfg(sample,True,options["outputPath"])
     sys.path.append(os.getenv('CMSSW_BASE')+os.path.sep+'MyCMSSWAnalysisTools')
     import CrabTools
-    crabP = CrabTools.crabProcess(postfix,processSample,sample,options["outputPath"],timeStamp,addGridDir="test")
+    crabP = CrabTools.crabProcess(postfix,processSample.newCfgName,sample.dataset,options["outputPath"],timeStamp,addGridDir="test")
     crabP.createCrabCfg()
     crabP.crabCfg["CMSSW"]["total_number_of_events"]=100
     crabP.crabCfg["CMSSW"]["number_of_jobs"]= 1

@@ -1,44 +1,35 @@
 #!/bin/bash
 pkgs=(
-  "DiLeptonicSelection ./ V00-09 ./install/installMyFWK.sh" 
-  "MyCMSSWAnalysisTools ./ V00-05"
+  "DiLeptonicSelection ./ " 
+  'MyCMSSWAnalysisTools ./ '
 )
 cmsswVer=CMSSW_4_2_8_patch7
-###################
-function getGitPackage {
-
-if [ -d "$1" ]; then
-  echo "updating "$1
-  cd $1
-  git fetch
-else
-  echo "installing "$1
-  git clone git@github.com:fhoehle/$1.git
-  cd $1
-fi
-  
-}
-
-echo "Installing/Updating SC analysis "
+scrArch=slc5_amd64_gcc434
 #
-if [ "X$SCRAM_ARCH" != "Xslc5_amd64_gcc434" ]; then 
-  echo "missing SCRAM_ARCH"
+if [ "X$CMS_PATH" == "X" ]; then
+  echo "source cms environment"
+  return 1
 fi
-if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
-  echo "missing CMSSW_BASE"
+####
+if [ "X$SCRAM_ARCH" != "X$scrArch" ]; then 
+  export SCRAM_ARCH=$scrArch 
 fi
+if [  "$(basename $PWD)" != "$cmsswVer" ]; then
+  echo "not in an CMSSW_X_Y area"
+fi
+###
+eval `scramv1 runtime -sh` # cmsenv
 cd $CMSSW_BASE
-set -e
-# install my packages
+## setup my packages
 for idx in ${!pkgs[*]}; do
   cd $CMSSW_BASE/`echo ${pkgs[$idx]} | awk '{print $2}'`
-  getGitPackage `echo ${pkgs[$idx]} | awk '{print $1}'`
-  git checkout `echo ${pkgs[$idx]} | awk '{print $3}'`
-  if  [ "X`echo ${pkgs[$idx]} | awk '{print $4}'`" != "X" ]; then
-    echo "calling additional command "`echo ${pkgs[$idx]} | awk '{print $4}'`
-    eval `echo ${pkgs[$idx]} | awk '{print $4}'`
+  cd `echo ${pkgs[$idx]} | awk '{print $1}'`
+  if  [ -e "setup.sh" ]; then
+    echo "additional setup"
+    source setup.sh
   fi
   cd $CMSSW_BASE
 done
-
-
+echo "Sourced MySCAnalysis"
+#
+#

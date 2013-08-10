@@ -64,18 +64,16 @@ for postfix,sampDict in testSamples.testFiles.iteritems():
     crabP = CrabTools.crabProcess(postfix,processSample.newCfgName,sample.dataset,options["outputPath"],timeStamp,addGridDir="test")
     crabP.createCrabCfg()
     if sampDict.has_key("crabConfig"):
-      for k1 in sampDict["crabConfig"]:
-        for k2 in sampDict[k1]:
-          crabP.crabCfg[k1][k2]=sampDict[k1][k2]
-    crabP.crabCfg["CMSSW"]["total_number_of_events"]=1000
-    crabP.crabCfg["CMSSW"]["number_of_jobs"]= 10
+      for k1 in sampDict["crabConfig"].keys():
+        for k2 in sampDict["crabConfig"][k1].keys():
+          crabP.crabCfg[k1][k2]=sampDict["crabConfig"][k1][k2]
+    crabP.crabCfg["CMSSW"]["total_number_of_events"]=1000000
+    crabP.crabCfg["CMSSW"]["number_of_jobs"]= 100
     crabCfgFilename = crabP.createCrabDir()
     crabP.writeCrabCfg()
-    #crabP.executeCrabCommand("-create") 
-    CrabTools.saveCrabProp(crabP,options["outputPath"]+"/"+postfix+"_CrabCfg.json")
-    if postfix == "ZZJetsTo2L2Q_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":
-     break
-    #crabP.executeCrabCommand("-submit")
+    crabP.executeCrabCommand("-create",debug = True) 
+    CrabTools.saveCrabProp(crabP,options["outputPath"]+"/"+postfix+"_"+timeStamp+"_CrabCfg.json")
+    crabP.executeCrabCommand("-submit",debug = True)
     #crabP.executeCrabCommand("-status")
 processSample.end()
 ##

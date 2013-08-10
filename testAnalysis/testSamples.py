@@ -4,7 +4,7 @@ testFiles = {
     ,"crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
   }
   ,"ZZJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
-    "localFile": "/store/user/fhohle//OfficialSamples/ZZJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FAB8CFD9-66FF-E011-A567-001F29C49312.root","crabConfig":{"GRID":{"se_Black_list":"T2_UK_London_IC"}}
+    "localFile": "/store/user/fhohle//OfficialSamples/ZZJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FAB8CFD9-66FF-E011-A567-001F29C49312.root","crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
   }
   ,"ZZTo2mu2tau_mll4_7TeV-powheg-pythia6__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/ZZTo2mu2tau_mll4_7TeV-powheg-pythia6__Fall11-PU_S6_START42_V14B-v1__AODSIM/FCE3D0EC-4308-E211-AD4A-003048C6929A.root"

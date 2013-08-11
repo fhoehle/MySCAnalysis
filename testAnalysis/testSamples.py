@@ -24,9 +24,6 @@ testFiles = {
   ,"WWJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM": {
     "localFile":"/store/user/fhohle//OfficialSamples/WWJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FE41AF6E-9BF1-E011-AC7E-E0CB4E29C514.root"
   }
-  ,"WWJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START44_V9B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/WWJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START44_V9B-v1__AODSIM/FE5B8A1E-BB3B-E111-B9B9-20CF305616D6.root"
-  }
   ,"WJetsToLNu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FECD1F53-09F3-E011-A327-001A92811720.root"
   }

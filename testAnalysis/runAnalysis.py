@@ -49,15 +49,16 @@ processSample =  myTools.processSample(cfg)
 bookKeeping = myTools.bookKeeping()
 ####
 for postfix,sampDict in testSamples.testFiles.iteritems(): 
-  sample = myTools.sample(sampDict["localFile"],postfix,int(options["maxEvents"]))
-  processSample.applyChanges(sample,True,options["outputPath"])
-  bookKeeping.numInputEvts(processSample.tmpCfgFileLoaded,postfix)
-  print "processing ",postfix," ",sampDict["localFile"],"  "
+  sample = myTools.sample(sampDict["localFile"],sampDict["label"],sampDict["xSec"],postfix,int(options["maxEvents"]))
+  processSample.applyChanges(sample)
+  print "processing ",postfix," ",sampDict["localFile"]
   if not runGrid:
-    processSample.runSample(sample,True,options["outputPath"])
+    processSample.runSample()
+    bookKeeping.bookKeep(processSample)
   else:
     processSample.setOutputFilesGrid()
     processSample.createNewCfg(sample,True,options["outputPath"])
+    bookKeeping.bookKeep(processSample)
     sys.path.append(os.getenv('CMSSW_BASE')+os.path.sep+'MyCMSSWAnalysisTools')
     import CrabTools
     sample.getSampleName()

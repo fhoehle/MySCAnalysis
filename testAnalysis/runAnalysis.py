@@ -4,11 +4,12 @@ import sys,imp,subprocess,os,getopt,re
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import testSamples
-opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid'])
+opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid','runParallel='])
 print sys.argv
 cfgFileName=None
-numProcesses=2
+numProcesses=3
 numJobs=2
+runParallel=False
 addOptions=''
 runGrid = False
 noTimeStamp = False
@@ -22,6 +23,12 @@ for opt,arg in opts:
  if opt in ("--runGrid"):
    runGrid = True
    sys.argv.remove("--runGrid")
+ if ("--runParallel") in opt:
+   print "arg ",arg
+   numProcesses =  int(arg) if arg != None  else numProcesses
+   sys.argv.pop(sys.argv.index(opt)+1)
+   sys.argv.remove(opt)
+   runParallel=True
  if opt in ("--help"):
    print 'python runAnalysis.py --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
    sys.exit(0)
@@ -48,12 +55,13 @@ processSample =  myTools.processSample(cfg)
 ### json output
 bookKeeping = myTools.bookKeeping()
 ####
+commandList = []
 for postfix,sampDict in testSamples.testFiles.iteritems(): 
   sample = myTools.sample(sampDict["localFile"],sampDict["label"],sampDict["xSec"],postfix,int(options["maxEvents"]))
   processSample.applyChanges(sample)
   print "processing ",postfix," ",sampDict["localFile"]
   if not runGrid:
-    processSample.runSample()
+    commandList.append(processSample.runSample(not runParallel))
     bookKeeping.bookKeep(processSample)
   else:
     processSample.setOutputFilesGrid()
@@ -77,5 +85,12 @@ for postfix,sampDict in testSamples.testFiles.iteritems():
     crabP.executeCrabCommand("-submit",debug = True)
     #crabP.executeCrabCommand("-status")
 processSample.end()
+if runParallel and len(commandList) > 0:
+  print "running ",numProcesses," cmsRun in parallel"
+  sys.path.append(os.getenv('CMSSW_BASE')+'/ParallelizationTools/BashParallel')
+  import doWhatEverParallel
+  doWhatEverParallel.execute(commandList,numProcesses)
+
 ##
 bookKeeping.save(options["outputPath"]+'/',timeStamp)
+   

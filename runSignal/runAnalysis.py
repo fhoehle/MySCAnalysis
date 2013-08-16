@@ -8,12 +8,13 @@ import sys,imp,subprocess,os,getopt,re,signal,json
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import signalSamples
-opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid'])
+opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid','runParallel='])
 print sys.argv
 cfgFileName=None
 numProcesses=2
 numJobs=2
 addOptions=''
+runParallel=False
 noTimeStamp = False
 runGrid = False
 for opt,arg in opts:
@@ -26,6 +27,12 @@ for opt,arg in opts:
  if opt in ("--runGrid"):
    runGrid = True
    sys.argv.remove("--runGrid")
+ if ("--runParallel") in opt:
+   print "arg ",arg
+   numProcesses =  int(arg) if arg != None  else numProcesses
+   sys.argv.pop(sys.argv.index(opt)+1)
+   sys.argv.remove(opt)
+   runParallel=True
  if opt in ("--help"):
    print 'python runAnalysis.py --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
    sys.exit(0)
@@ -45,26 +52,33 @@ if options["outputPath"] != os.getenv("PWD"):
 #make tmp copy
 cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
 cfg = myTools.createWorkDirCpCfg(options["outputPath"],cfg,timeStamp)
-cfg = myTools.compileCfg(cfg,options,addOptions)
+print "working here ",cfg
 ### json output
 bookKeeping = myTools.bookKeeping()
 ### start processing sample
-processSample = myTools.processSample(cfg)
-for postfix,sampDict in signalSamples.testFiles.iteritems(): 
-  sample = myTools.sample(sampDict["localFile"],postfix,int(options["maxEvents"]))
+commandList = []
+for postfix,sampDict in signalSamples.testFiles.iteritems():
+  remainingOpts = myTools.removeAddOptions(options.keys(),addOptions+(" "+sampDict["addOptions"]) if sampDict.has_key("addOptions") else "")
+  print "remainingOpts ",remainingOpts
+  cfgSamp = myTools.compileCfg(cfg,remainingOpts,postfix )
+  processSample = myTools.processSample(cfgSamp)
+  sample = myTools.sample(sampDict["localFile"],sampDict["label"],sampDict["xSec"],postfix,int(options["maxEvents"]))
   processSample.applyChanges(sample)
+  sample.__dict__["color"] = sampDict["color"]
   print "processing ",postfix," ",sampDict["localFile"]
   if not runGrid:
-    processSample.runSample()
+    commandList.append(processSample.runSample(not runParallel))
     bookKeeping.bookKeep(processSample)
+    print "done"
   else:
     processSample.setOutputFilesGrid()
-    processSample.createNewCfg(sample,True,options["outputPath"])
+    processSample.createNewCfg()
     bookKeeping.bookKeep(processSample)
     sys.path.append(os.getenv('CMSSW_BASE')+os.path.sep+'MyCMSSWAnalysisTools')
     import CrabTools
-    sample.getSampleName()
+    sample.setDataset()
     crabP = CrabTools.crabProcess(postfix,processSample.newCfgName,sample.dataset,options["outputPath"],timeStamp,addGridDir="test")
+    crabP.setCrabDir(sample.dataset,timeStamp,options["outputPath"])
     crabP.createCrabCfg()
     crabP.crabCfg["CMSSW"]["total_number_of_events"]=100000
     crabP.crabCfg["CMSSW"]["number_of_jobs"]= 1000
@@ -75,6 +89,13 @@ for postfix,sampDict in signalSamples.testFiles.iteritems():
     #crabP.executeCrabCommand("-submit")
     #crabP.executeCrabCommand("-status")
 processSample.end()
+if runParallel and len(commandList) > 0: 
+  print "running ",numProcesses," cmsRun in parallel" 
+  sys.path.append(os.getenv('CMSSW_BASE')+'/ParallelizationTools/BashParallel') 
+  import doWhatEverParallel 
+  doWhatEverParallel.execute(commandList,numProcesses) 
+
+
 ## save bookKeeping
 bookKeeping.save(options["outputPath"],timeStamp)
 #processSample =  myTools.processSample('../DiLeptonicSelection/patRefSel_diLep_cfg.py')

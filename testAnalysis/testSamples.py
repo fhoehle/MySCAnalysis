@@ -145,7 +145,7 @@ testFiles = {
     ,"color":ROOT.kMagenta-4
   }
   ,"DYJetsToLL_TuneZ2_M-50_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
-    "localFile":"/user/fhohle/OfficialSamples/DYJetsToLL_TuneZ2_M-50_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/00E828B9-1CF5-E011-AC89-00261834B524.root"
+    "localFile":"/store/user/fhohle/OfficialSamples/DYJetsToLL_TuneZ2_M-50_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/00E828B9-1CF5-E011-AC89-00261834B524.root"
     ,"xSec":3048
     ,"label":"DYJetsToLL-M-50"
     ,"color":ROOT.kRed-4

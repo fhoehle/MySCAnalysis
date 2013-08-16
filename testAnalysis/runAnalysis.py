@@ -48,16 +48,20 @@ if options["outputPath"] != os.getenv("PWD"):
 #make tmp copy
 cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
 cfg = myTools.createWorkDirCpCfg(options["outputPath"],cfg,timeStamp)
-cfg = myTools.compileCfg(cfg,options,addOptions)
 ### json output
 bookKeeping = myTools.bookKeeping()
-processSample =  myTools.processSample(cfg)
+
 ### json output
 bookKeeping = myTools.bookKeeping()
 ####
 commandList = []
-for postfix,sampDict in testSamples.testFiles.iteritems(): 
+for postfix,sampDict in testSamples.testFiles.iteritems():
+  remainingOpts = myTools.removeAddOptions(options.keys(),addOptions+(" "+sampDict["addOptions"]) if sampDict.has_key("addOptions") else "")
+  print "remainingOpts ",remainingOpts
+  cfgSamp = myTools.compileCfg(cfg,remainingOpts,postfix ) 
+  processSample =  myTools.processSample(cfgSamp)
   sample = myTools.sample(sampDict["localFile"],sampDict["label"],sampDict["xSec"],postfix,int(options["maxEvents"]))
+  sample.__dict__["color"]=sampDict["color"]
   processSample.applyChanges(sample)
   print "processing ",postfix," ",sampDict["localFile"]
   if not runGrid:
@@ -65,12 +69,14 @@ for postfix,sampDict in testSamples.testFiles.iteritems():
     bookKeeping.bookKeep(processSample)
   else:
     processSample.setOutputFilesGrid()
-    processSample.createNewCfg(sample,True,options["outputPath"])
+    processSample.createNewCfg()
     bookKeeping.bookKeep(processSample)
+    sys.stdout.flush()
     sys.path.append(os.getenv('CMSSW_BASE')+os.path.sep+'MyCMSSWAnalysisTools')
     import CrabTools
-    sample.getSampleName()
+    sample.setDataset()
     crabP = CrabTools.crabProcess(postfix,processSample.newCfgName,sample.dataset,options["outputPath"],timeStamp,addGridDir="test")
+    crabP.setCrabDir(sample.dataset,timeStamp,options["outputPath"])
     crabP.createCrabCfg()
     if sampDict.has_key("crabConfig"):
       for k1 in sampDict["crabConfig"].keys():

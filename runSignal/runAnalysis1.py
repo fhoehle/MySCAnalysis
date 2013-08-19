@@ -1,0 +1,10 @@
+# run cmssw analysis
+import FWCore.ParameterSet.Config as cms
+import os,sys
+sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
+import  cmsswAnalysisTools
+import signalSamples
+cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
+myAnalysis = cmsswAnalysisTools.cmsswAnalysis(signalSamples.testFiles,cfg)
+myAnalysis.readOpts()
+myAnalysis.startAnalysis()

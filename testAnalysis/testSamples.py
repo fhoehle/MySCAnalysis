@@ -56,7 +56,7 @@ testFiles = {
     ,"xSec":31314
     ,"label":"WJetsToLNu"
     ,"color":ROOT.kRed+1
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500}}
+    ,"crabConfig":{"CMSSW":{"number_of_jobs":3000}}
   }
   ,"T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F4CA8516-5256-E111-9A2E-001EC9D7FA1C.root"

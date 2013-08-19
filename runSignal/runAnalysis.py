@@ -8,7 +8,7 @@ import sys,imp,subprocess,os,getopt,re,signal,json
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import signalSamples
-opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid','runParallel='])
+opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid','runParallel=','specificSamples='])
 print sys.argv
 cfgFileName=None
 numProcesses=2
@@ -17,6 +17,7 @@ addOptions=''
 runParallel=False
 noTimeStamp = False
 runGrid = False
+specificSamples = None
 for opt,arg in opts:
  if opt in ("--addOptions"):
    addOptions=arg
@@ -33,6 +34,10 @@ for opt,arg in opts:
    sys.argv.pop(sys.argv.index(opt)+1)
    sys.argv.remove(opt)
    runParallel=True
+ if ("--specificSamples") in opt:
+   specificSamples = arg.split(",")
+   sys.argv.pop(sys.argv.index(opt)+1)
+   sys.argv.remove(opt)
  if opt in ("--help"):
    print 'python runAnalysis.py --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
    sys.exit(0)
@@ -57,7 +62,7 @@ print "working here ",cfg
 bookKeeping = myTools.bookKeeping()
 ### start processing sample
 commandList = []
-for postfix,sampDict in signalSamples.testFiles.iteritems():
+for postfix,sampDict in signalSamples.testFiles.iteritems() if specificSamples == None else [(p,s) for p,s in signalSamples.testFiles.iteritems() if p in specificSamples ]:
   remainingOpts = myTools.removeAddOptions(options.keys(),addOptions+(" "+sampDict["addOptions"]) if sampDict.has_key("addOptions") else "")
   print "remainingOpts ",remainingOpts
   cfgSamp = myTools.compileCfg(cfg,remainingOpts,postfix )
@@ -98,4 +103,3 @@ if runParallel and len(commandList) > 0:
 
 ## save bookKeeping
 bookKeeping.save(options["outputPath"],timeStamp)
-#processSample =  myTools.processSample('../DiLeptonicSelection/patRefSel_diLep_cfg.py')

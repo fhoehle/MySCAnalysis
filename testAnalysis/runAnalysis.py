@@ -4,7 +4,7 @@ import sys,imp,subprocess,os,getopt,re
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import tools as myTools
 import testSamples
-opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','noTimeStamp','help','runGrid','runParallel='])
+opts, args = getopt.getopt(sys.argv[1:], '',['addOptions=','help','runGrid','runParallel=','specificSamples=','dontExec'])
 print sys.argv
 cfgFileName=None
 numProcesses=3
@@ -12,25 +12,26 @@ numJobs=2
 runParallel=False
 addOptions=''
 runGrid = False
-noTimeStamp = False
+specificSamples = None
+dontExec = False
 for opt,arg in opts:
  if opt in ("--addOptions"):
    addOptions=arg
-   sys.argv.remove(arg); sys.argv.remove("--addOptions")
- if opt in ("--noTimeStamp"):
-   noTimeStamp = True
-   sys.argv.remove("--noTimeStamp")
+   myTools.removeOptFromArgv(opt,True)
  if opt in ("--runGrid"):
    runGrid = True
-   sys.argv.remove("--runGrid")
+   myTools.removeOptFromArgv(opt)
+ if opt in ("--dontExec"):
+   dontExec = True; myTools.removeOptFromArgv(opt)
  if ("--runParallel") in opt:
-   print "arg ",arg
    numProcesses =  int(arg) if arg != None  else numProcesses
-   sys.argv.pop(sys.argv.index(opt)+1)
-   sys.argv.remove(opt)
+   myTools.removeOptFromArgv(opt,arg != None)
    runParallel=True
+ if ("--specificSamples") in opt:
+   specificSamples = arg.split(",")
+   myTools.removeOptFromArgv(opt,True)
  if opt in ("--help"):
-   print 'python runAnalysis.py --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
+   print 'python runAnalysis.py --specificSamples label1,label2 --runParallel 2 --runGrid --addOptions \"maxEvents=1 outputPath=/net/scratch_cms/institut_3b/hoehle/hoehle/tmp\"'
    sys.exit(0)
 options ={}
 options["maxEvents"]=1000
@@ -41,9 +42,8 @@ for opt in addOptions.split():
   if options.has_key(reOpt.group(1)):
     options[reOpt.group(1)]=reOpt.group(2)
 if options["outputPath"] != os.getenv("PWD"):
-  if not noTimeStamp:
-    options["outputPath"]= os.path.realpath(options["outputPath"])+"_"+timeStamp+os.path.sep 
-    print options["outputPath"]
+  options["outputPath"]= os.path.realpath(options["outputPath"])+"_"+timeStamp+os.path.sep 
+  print options["outputPath"]
 ## preparing cfg with additional options
 #make tmp copy
 cfg = '../../DiLeptonicSelection/patRefSel_diLep_cfg.py'
@@ -55,7 +55,9 @@ bookKeeping = myTools.bookKeeping()
 bookKeeping = myTools.bookKeeping()
 ####
 commandList = []
-for postfix,sampDict in testSamples.testFiles.iteritems():
+dontExecCrab = dontExec
+
+for postfix,sampDict in testSamples.testFiles.iteritems()if specificSamples == None else [(p,s) for p,s in testSamples.testFiles.iteritems() if p in specificSamples ]:
   remainingOpts = myTools.removeAddOptions(options.keys(),addOptions+(" "+sampDict["addOptions"]) if sampDict.has_key("addOptions") else "")
   print "remainingOpts ",remainingOpts
   cfgSamp = myTools.compileCfg(cfg,remainingOpts,postfix ) 
@@ -64,8 +66,10 @@ for postfix,sampDict in testSamples.testFiles.iteritems():
   sample.__dict__["color"]=sampDict["color"]
   processSample.applyChanges(sample)
   print "processing ",postfix," ",sampDict["localFile"]
+  sys.stdout.flush()
   if not runGrid:
-    commandList.append(processSample.runSample(not runParallel))
+    if not ( dontExec and not runParallel):
+      commandList.append(processSample.runSample(not runParallel))
     bookKeeping.bookKeep(processSample)
   else:
     processSample.setOutputFilesGrid()
@@ -76,26 +80,23 @@ for postfix,sampDict in testSamples.testFiles.iteritems():
     import CrabTools
     sample.setDataset()
     crabP = CrabTools.crabProcess(postfix,processSample.newCfgName,sample.dataset,options["outputPath"],timeStamp,addGridDir="test")
-    crabP.setCrabDir(sample.dataset,timeStamp,options["outputPath"])
-    crabP.createCrabCfg()
-    if sampDict.has_key("crabConfig"):
-      for k1 in sampDict["crabConfig"].keys():
-        for k2 in sampDict["crabConfig"][k1].keys():
-          crabP.crabCfg[k1][k2]=sampDict["crabConfig"][k1][k2]
-    crabP.crabCfg["CMSSW"]["total_number_of_events"]=1000000
-    crabP.crabCfg["CMSSW"]["number_of_jobs"]= 100
+    crabP.setCrabDir(sample.postfix,timeStamp,options["outputPath"])
+    crabP.createCrabCfg(sampDict.get("crabConfig"))
     crabCfgFilename = crabP.createCrabDir()
     crabP.writeCrabCfg()
     crabP.executeCrabCommand("-create",debug = True) 
     CrabTools.saveCrabProp(crabP,options["outputPath"]+"/"+postfix+"_"+timeStamp+"_CrabCfg.json")
-    crabP.executeCrabCommand("-submit",debug = True)
-    #crabP.executeCrabCommand("-status")
+    if not dontExecCrab:
+      crabP.executeCrabCommand("-submit",debug = True)
+      crabP.executeCrabCommand("-status")
 processSample.end()
+dontExecParallel = dontExec
 if runParallel and len(commandList) > 0:
   print "running ",numProcesses," cmsRun in parallel"
   sys.path.append(os.getenv('CMSSW_BASE')+'/ParallelizationTools/BashParallel')
   import doWhatEverParallel
-  doWhatEverParallel.execute(commandList,numProcesses)
+  if not dontExecParallel:
+    doWhatEverParallel.execute(commandList,numProcesses)
 
 ##
 bookKeeping.save(options["outputPath"]+'/',timeStamp)

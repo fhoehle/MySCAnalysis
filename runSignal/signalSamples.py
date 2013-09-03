@@ -6,12 +6,14 @@ testFiles = {
     ,"xSec":157
     ,"color":ROOT.kGreen+1
     ,"addOptions":"runOnTTbar=True"
+    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
   },
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarFileList  ,"label":"TTbarBackground"
     ,"xSec":157
     ,"color":ROOT.kRed+1
     ,"addOptions":"runOnTTbar=True N1TTbarDiLepBck=True"
+    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
 }
 ###

@@ -11,7 +11,7 @@ testFiles = {
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarFileList  ,"label":"TTbarBackground"
     ,"xSec":157
-    ,"color":ROOT.kRed+1
+    ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True N1TTbarDiLepBck=True"
     ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
@@ -25,7 +25,7 @@ testFiles = {
   ,"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrSignal"
     ,"xSec":157
-    ,"color":ROOT.kRed+1
+    ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True N1TTbarDiLepBck=True"
     ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
   }

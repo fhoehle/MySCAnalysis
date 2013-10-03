@@ -1,0 +1,141 @@
+[INFO] No qualified trg data found for run  167943
+[INFO] No qualified trg data found for run  167967
+[INFO] No qualified trg data found for run  167969
+[INFO] No qualified trg data found for run  172632
+[INFO] No qualified trg data found for run  172820
+[INFO] No qualified trg data found for run  172823
+[INFO] No qualified trg data found for run  172866
+[INFO] No qualified trg data found for run  165401
+[INFO] No qualified trg data found for run  179193
+[INFO] No qualified trg data found for run  179196
+[INFO] No qualified trg data found for run  179202
+[INFO] No qualified trg data found for run  190487
+[INFO] No qualified trg data found for run  179212
+[INFO] No qualified trg data found for run  179242
+[INFO] No qualified trg data found for run  171084
+[INFO] No qualified trg data found for run  191831
+[INFO] No qualified trg data found for run  193114
+[INFO] No qualified trg data found for run  175908
+[INFO] No qualified trg data found for run  167960
+[INFO] No qualified trg data found for run  167961
+[INFO] No qualified trg data found for run  167964
+[INFO] No qualified trg data found for run  167965
+[INFO] No qualified trg data found for run  176203
+[INFO] No qualified trg data found for run  201417
+[INFO] No qualified trg data found for run  193113
+[INFO] No qualified trg data found for run  176866
+[INFO] No qualified trg data found for run  176980
+[INFO] No qualified trg data found for run  177314
+[INFO] No qualified trg data found for run  177315
+[INFO] No qualified trg data found for run  178206
+[INFO] No qualified trg data found for run  178672
+[INFO] No qualified trg data found for run  178704
+[INFO] No qualified trg data found for run  178707
+[INFO] No qualified trg data found for run  179186
+[INFO] No qualified trg data found for run  179200
+[INFO] No qualified trg data found for run  179203
+[INFO] No qualified trg data found for run  179218
+[INFO] No qualified trg data found for run  179220
+[INFO] No qualified trg data found for run  179227
+[INFO] No qualified trg data found for run  179234
+[INFO] No qualified trg data found for run  179237
+[INFO] No qualified trg data found for run  179245
+[INFO] No qualified trg data found for run  179246
+[INFO] No qualified trg data found for run  179451
+[INFO] No qualified trg data found for run  180075
+********************************************************************************
+* Tue Oct  1 11:21:58 2013 UTC
+* lumitype: HF , datatag: v11 , normtag: HFV2c , worktag: n/a
+* 
+* by:
+* /user/hoehle/CMSSW/CMSSW_MYSCFWK/CMSSW_4_2_8_patch7/bin/slc5_amd64_gcc434/lumiCalc2.py
+* 
+* update: NONE
+********************************************************************************
+[WARNING] lumi or trg for selected run/ls 170876 518 not in lumiDB
+ ==  = 
+|    Run:Fill | Delivered LS |     Delivered |          Selected LS |      Recorded |
+-------------------------------------------------------------------------------------
+| 170826:1962 |          239 |   7.187 (/pb) | [50-122], [139-243], |   7.082 (/pb) |
+|             |              |               |            [248-308] |               |
+| 170842:1962 |          322 |   8.420 (/pb) |     [1-27], [32-96], |   8.280 (/pb) |
+|             |              |               |            [102-331] |               |
+| 170854:1962 |          565 |  12.505 (/pb) |  [1-336], [341-414], |  12.272 (/pb) |
+|             |              |               | [420-470], [475-578] |               |
+| 170876:1962 |          507 |   9.328 (/pb) |  [1-110], [115-295], |   9.193 (/pb) |
+|             |              |               |            [301-516] |               |
+| 170896:1962 |          212 |   3.568 (/pb) |              [1-212] |   3.501 (/pb) |
+| 170899:1962 |           84 |   1.347 (/pb) |               [1-84] |   1.330 (/pb) |
+| 170901:1962 |          195 |   2.833 (/pb) |   [1-153], [159-200] |   2.793 (/pb) |
+| 171050:1966 |          582 |  19.114 (/pb) |   [47-74], [80-337], |  18.705 (/pb) |
+|             |              |               |           [342-369], |               |
+|             |              |               |           [371-379], |               |
+|             |              |               |           [384-423], |               |
+|             |              |               | [427-467], [471-648] |               |
+| 171091:1966 |          135 |   3.688 (/pb) |              [1-135] |   3.542 (/pb) |
+| 171098:1966 |            8 | 213.460 (/nb) |                [1-8] |  95.860 (/nb) |
+| 171102:1966 |           19 | 500.520 (/nb) |               [1-19] | 444.237 (/nb) |
+| 171106:1966 |          284 |   7.083 (/pb) |     [1-27], [32-288] |   6.954 (/pb) |
+| 171117:1966 |           82 |   1.804 (/pb) |     [1-54], [56-78], |   1.728 (/pb) |
+|             |              |               |              [80-84] |               |
+| 171156:1967 |          646 |  20.232 (/pb) | [42-106], [111-686], |  19.453 (/pb) |
+|             |              |               |            [688-692] |               |
+| 171178:1967 |         1022 |  23.588 (/pb) |    [1-92], [97-205], |  23.180 (/pb) |
+|             |              |               |           [210-551], |               |
+|             |              |               |           [556-557], |               |
+|             |              |               |           [563-787], |               |
+|             |              |               |           [792-1043] |               |
+| 171219:1968 |          114 |   4.176 (/pb) |  [48-151], [153-162] |   4.120 (/pb) |
+| 171274:1970 |           54 |   2.327 (/pb) |  [88-137], [140-143] |   2.132 (/pb) |
+| 171282:1970 |          161 |   6.431 (/pb) |     [1-12], [14-99], |   6.251 (/pb) |
+|             |              |               | [104-134], [140-171] |               |
+| 171315:1971 |          173 |   6.542 (/pb) |             [53-225] |   6.449 (/pb) |
+| 171369:1972 |          109 |   4.049 (/pb) | [42-130], [136-137], |   3.991 (/pb) |
+|             |              |               |            [144-161] |               |
+| 171446:1974 |           87 |   3.524 (/pb) |             [58-144] |   3.467 (/pb) |
+| 171484:1975 |          362 |  13.531 (/pb) | [61-202], [207-370], |  13.347 (/pb) |
+|             |              |               |            [377-432] |               |
+| 171578:1979 |          894 |  24.326 (/pb) | [47-150], [156-174], |  24.009 (/pb) |
+|             |              |               |           [179-314], |               |
+|             |              |               |           [320-347], |               |
+|             |              |               |           [353-480], |               |
+|             |              |               |           [487-572], |               |
+|             |              |               | [578-816], [821-974] |               |
+| 171812:1982 |          376 |  14.108 (/pb) |  [59-296], [301-438] |  13.821 (/pb) |
+| 171876:1985 |          523 |  19.770 (/pb) |  [1-362], [368-391], |  19.061 (/pb) |
+|             |              |               |            [397-533] |               |
+| 171880:1985 |          184 |   5.695 (/pb) |             [19-202] |   5.611 (/pb) |
+| 171895:1985 |            1 |  28.388 (/nb) |              [34-34] |  18.415 (/nb) |
+| 171897:1985 |          352 |   8.859 (/pb) |   [1-23], [205-437], |   8.671 (/pb) |
+|             |              |               | [442-511], [517-542] |               |
+| 171921:1986 |           91 |   4.051 (/pb) |             [51-141] |   3.934 (/pb) |
+| 171926:1986 |          254 |   9.812 (/pb) |    [1-49], [51-155], |   9.490 (/pb) |
+|             |              |               | [161-172], [177-264] |               |
+| 172014:1990 |          237 |  10.520 (/pb) |    [1-64], [66-143], |   9.891 (/pb) |
+|             |              |               |            [149-243] |               |
+| 172024:1990 |           46 |   1.889 (/pb) |               [1-46] |   1.792 (/pb) |
+| 172033:1990 |          732 |  24.884 (/pb) |    [1-65], [71-277], |  24.563 (/pb) |
+|             |              |               |           [282-375], |               |
+|             |              |               | [380-473], [478-749] |               |
+| 172163:1991 |          429 |  17.969 (/pb) |  [36-109], [115-469] |  17.711 (/pb) |
+| 172208:1992 |          139 |   6.333 (/pb) |             [61-199] |   6.108 (/pb) |
+| 172252:1993 |           23 |   1.150 (/pb) |              [32-54] |   1.090 (/pb) |
+| 172254:1993 |           35 |   1.719 (/pb) |               [1-35] |   1.566 (/pb) |
+| 172255:1993 |           40 |   1.723 (/pb) |               [1-40] |   1.594 (/pb) |
+| 172268:1994 |          114 |   5.441 (/pb) |             [56-169] |   5.324 (/pb) |
+| 172286:1996 |          159 |   6.964 (/pb) |  [52-177], [184-216] |   6.842 (/pb) |
+| 172389:1997 |          417 |  17.777 (/pb) | [34-144], [150-428], |  17.490 (/pb) |
+|             |              |               |            [434-460] |               |
+| 172399:1998 |          170 |   7.772 (/pb) |             [57-226] |   7.590 (/pb) |
+| 172400:1998 |          695 |  26.010 (/pb) |  [1-495], [500-690], |  25.455 (/pb) |
+|             |              |               |            [696-704] |               |
+| 172401:1998 |          146 |   4.575 (/pb) |       [1-2], [5-148] |   4.409 (/pb) |
+| 172411:1999 |          265 |  12.074 (/pb) |             [85-349] |  11.722 (/pb) |
+| 172478:1999 |          110 |   3.082 (/pb) |              [1-110] |   2.990 (/pb) |
+| 172619:2000 |           77 |   1.636 (/pb) |               [1-77] |   1.580 (/pb) |
+
+ ==  =  Total : 
+| Delivered LS | Delivered(/pb) | Selected LS | Recorded(/pb) |
+---------------------------------------------------------------
+|        12471 |        400.156 |       12471 |       390.640 |
+

@@ -1,0 +1,3 @@
+Loading FW Lite setup.
+singleMuRun2011A_all.txt   HLT_Mu17_Mu8_v*
+['Run', 'LS', '(hltpath,presc,l1pass,hltaccept)']

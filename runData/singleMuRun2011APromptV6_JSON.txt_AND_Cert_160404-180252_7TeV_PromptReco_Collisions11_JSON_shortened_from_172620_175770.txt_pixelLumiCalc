@@ -1,0 +1,165 @@
+********************************************************************************
+* Tue Oct  1 11:28:45 2013 UTC
+* lumitype: PIXEL , datatag: v11 , normtag: PIXELV2 , worktag: n/a
+* 
+* by:
+* /user/hoehle/CMSSW/CMSSW_MYSCFWK/CMSSW_4_2_8_patch7/bin/slc5_amd64_gcc434/pixelLumiCalc.py
+* 
+* update: NONE
+********************************************************************************
+[WARNING] lumi or trg for selected run/ls 173198 816 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 817 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 818 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 819 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 820 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 821 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 822 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173198 823 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172824 50 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172824 51 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172824 52 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172824 53 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172824 54 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172952 1559 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172952 1560 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172952 1561 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172952 1562 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172868 1968 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172868 1969 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172868 1970 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172635 268 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172847 128 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172847 129 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172847 130 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172847 131 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173380 217 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173381 290 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173381 291 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173381 292 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173381 293 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173381 294 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172999 290 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172999 291 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172999 292 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172999 293 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172999 294 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 645 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 646 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 647 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 648 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 649 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 650 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 651 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 652 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173389 653 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173406 283 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173406 284 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173406 285 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173406 286 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172778 93 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172778 94 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172778 95 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172778 96 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 172778 97 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173439 755 not in lumiDB
+[WARNING] lumi or trg for selected run/ls 173439 756 not in lumiDB
+ ==  = 
+|    Run:Fill | Delivered LS |     Delivered |          Selected LS |      Recorded |
+-------------------------------------------------------------------------------------
+| 172620:2000 |          495 |   9.990 (/pb) |              [1-495] |   9.888 (/pb) |
+| 172630:2001 |          118 |   5.723 (/pb) |   [36-64], [68-134], |   5.560 (/pb) |
+|             |              |               |            [139-160] |               |
+| 172635:2001 |          262 |  11.304 (/pb) |     [1-18], [24-267] |  11.031 (/pb) |
+| 172778:2005 |           45 |   2.229 (/pb) |              [48-92] |   2.179 (/pb) |
+| 172791:2006 |         1572 |  56.636 (/pb) | [65-413], [418-569], |  55.806 (/pb) |
+|             |              |               |           [571-715], |               |
+|             |              |               |          [721-1295], |               |
+|             |              |               |         [1300-1536], |               |
+|             |              |               |         [1542-1645], |               |
+|             |              |               |          [1649-1658] |               |
+| 172798:2006 |           31 | 849.676 (/nb) |               [1-31] | 780.191 (/nb) |
+| 172799:2006 |          367 |   9.690 (/pb) |              [1-367] |   9.553 (/pb) |
+| 172801:2006 |         1129 |  25.185 (/pb) |  [1-679], [681-750], |  24.374 (/pb) |
+|             |              |               |           [753-766], |               |
+|             |              |               |           [768-815], |               |
+|             |              |               |           [819-837], |               |
+|             |              |               |           [839-861], |               |
+|             |              |               |           [863-909], |               |
+|             |              |               |           [911-1139] |               |
+| 172802:2006 |          780 |  14.378 (/pb) |   [1-629], [634-784] |  14.123 (/pb) |
+| 172819:2007 |          194 |   9.077 (/pb) |    [57-87], [92-254] |   8.856 (/pb) |
+| 172822:2007 |         2300 |  73.414 (/pb) |    [1-75], [77-127], |  72.422 (/pb) |
+|             |              |               |           [133-353], |               |
+|             |              |               |           [358-662], |               |
+|             |              |               |           [667-832], |               |
+|             |              |               |          [837-1096], |               |
+|             |              |               |         [1102-1112], |               |
+|             |              |               |         [1118-2121], |               |
+|             |              |               |          [2127-2333] |               |
+| 172824:2007 |           49 |   1.177 (/pb) |               [1-49] |   1.134 (/pb) |
+| 172847:2008 |           66 |   3.365 (/pb) |             [62-127] |   3.281 (/pb) |
+| 172865:2009 |          342 |  16.476 (/pb) |  [36-151], [157-382] |  15.880 (/pb) |
+| 172868:2009 |         1951 |  63.371 (/pb) |    [1-29], [34-708], |  62.489 (/pb) |
+|             |              |               |           [714-909], |               |
+|             |              |               |          [912-1829], |               |
+|             |              |               |          [1835-1967] |               |
+| 172949:2010 |         1212 |  48.218 (/pb) | [55-127], [133-159], |  47.280 (/pb) |
+|             |              |               |           [161-263], |               |
+|             |              |               |           [269-274], |               |
+|             |              |               |           [276-892], |               |
+|             |              |               |           [898-928], |               |
+|             |              |               |           [933-1287] |               |
+| 172951:2010 |           52 |   1.662 (/pb) |               [1-52] |   1.571 (/pb) |
+| 172952:2010 |         1548 |  40.209 (/pb) |  [1-195], [197-670], |  39.621 (/pb) |
+|             |              |               |           [675-797], |               |
+|             |              |               |          [799-1164], |               |
+|             |              |               |          [1169-1558] |               |
+| 172992:2011 |          395 |  15.456 (/pb) |           [505-511], |  15.207 (/pb) |
+|             |              |               |           [516-713], |               |
+|             |              |               | [752-874], [880-946] |               |
+| 172999:2011 |          284 |   9.551 (/pb) |     [1-71], [77-289] |   9.375 (/pb) |
+| 173198:2022 |          758 |  31.700 (/pb) | [49-322], [324-356], |  30.997 (/pb) |
+|             |              |               |           [362-485], |               |
+|             |              |               | [488-768], [770-815] |               |
+| 173236:2025 |          104 |   5.333 (/pb) |            [128-231] |   5.179 (/pb) |
+| 173240:2025 |          124 |   5.927 (/pb) |              [1-124] |   5.693 (/pb) |
+| 173241:2025 |          747 |  30.544 (/pb) |    [1-85], [92-381], |  29.986 (/pb) |
+|             |              |               |            [388-759] |               |
+| 173243:2025 |           89 |   3.172 (/pb) |               [1-89] |   3.093 (/pb) |
+| 173380:2028 |          131 |   6.112 (/pb) |  [75-204], [209-209] |   5.959 (/pb) |
+| 173381:2028 |          277 |  11.626 (/pb) |  [1-134], [139-221], |  11.227 (/pb) |
+|             |              |               | [226-226], [231-289] |               |
+| 173389:2029 |          601 |  27.004 (/pb) | [18-106], [111-169], |  25.840 (/pb) |
+|             |              |               |           [174-224], |               |
+|             |              |               | [230-262], [276-644] |               |
+| 173406:2030 |          246 |  12.262 (/pb) |             [37-282] |  12.042 (/pb) |
+| 173430:2031 |           92 |   4.685 (/pb) |             [72-163] |   4.509 (/pb) |
+| 173438:2032 |           25 |   1.496 (/pb) |              [32-56] |   1.128 (/pb) |
+| 173439:2032 |          740 |  36.700 (/pb) |  [1-274], [280-313], |  35.301 (/pb) |
+|             |              |               | [319-467], [472-754] |               |
+| 173657:2037 |           35 |   1.724 (/pb) |              [59-93] |   1.406 (/pb) |
+| 173658:2037 |          110 |   5.130 (/pb) |              [1-110] |   4.473 (/pb) |
+| 173659:2037 |          313 |  13.141 (/pb) |     [1-61], [66-317] |  12.865 (/pb) |
+| 173660:2037 |          353 |  13.077 (/pb) |    [1-81], [86-164], |  12.674 (/pb) |
+|             |              |               | [169-357], [359-362] |               |
+| 173661:2037 |          119 |   4.025 (/pb) |     [1-56], [62-63], |   3.814 (/pb) |
+|             |              |               |             [65-125] |               |
+| 173663:2037 |          119 |   3.842 (/pb) |     [1-71], [73-120] |   3.712 (/pb) |
+| 173664:2037 |           12 | 379.138 (/nb) |               [5-16] | 373.117 (/nb) |
+| 173692:2040 |         2655 |  87.195 (/pb) | [50-143], [149-468], |  86.037 (/pb) |
+|             |              |               |          [474-1123], |               |
+|             |              |               |         [1129-1162], |               |
+|             |              |               |         [1168-1321], |               |
+|             |              |               |         [1326-1361], |               |
+|             |              |               |         [1366-1383], |               |
+|             |              |               |         [1389-1431], |               |
+|             |              |               |         [1436-1818], |               |
+|             |              |               |         [1824-2361], |               |
+|             |              |               |         [2366-2710], |               |
+|             |              |               |          [2715-2754] |               |
+
+ ==  =  Total : 
+| Delivered LS | Delivered(/pb) | Selected LS | Recorded(/pb) |
+---------------------------------------------------------------
+|        20842 |        723.038 |       20842 |       706.719 |
+

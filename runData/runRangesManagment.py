@@ -2,6 +2,10 @@ class runRangeManager(object):
   def __init__(self,l,debug=False):
     from copy import deepcopy
     self.listR = deepcopy(l)
+    if not isinstance(self.listR[0],runRange):
+      tmpList = deepcopy(self.listR);self.listR=[]
+      for r in tmpList:
+        self.listR.append(runRange(r[0],r[-1]))
     self.debug=debug
   def calcTriggerRunRanges(self):
     self.listR.sort(key=lambda r:r.min)

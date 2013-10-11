@@ -10,7 +10,7 @@ dataDatasets = {
     ,"runRange":"172620-175770"
   }
   ,'SingleMu__Run2011A-PromptReco-v4__AOD' : {
-    'localFile':None
+    'localFile':'/store/user/fhohle/OfficialSamples/SingleMu__Run2011A-PromptReco-v4__AOD/048D33D0-EE80-E011-94E2-0030487CD716.root'
     ,'xSec':None
     ,'datasetName':'/SingleMu/Run2011A-PromptReco-v4/AOD'
     ,'label':'Data_Run2011A_PromptReco-v4'

@@ -5,7 +5,7 @@ dataDatasets = {
     ,'datasetName':'/SingleMu/Run2011A-PromptReco-v6/AOD'
     ,'label':'Data_Run2011A_PromptReco-v6'
     ,'color':0
-    ,"addOptions":"runOnData=True"
+    #,"addOptions":"runOnData=True"
     ,"crabConfig":{"CMSSW":{"lumis_per_job":5,"lumi_mask":'singleMuRun2011A_all.txt',"total_number_of_lumis" : -1}}
     ,"runRange":"172620-175770"
   }

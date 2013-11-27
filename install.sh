@@ -1,7 +1,7 @@
 #!/bin/bash
 pkgs=(
-  "DiLeptonicSelection ./ V00-09 ./install/installMyFWK.sh" 
-  "MyCMSSWAnalysisTools ./ V00-09 ./install.sh"
+  "DiLeptonicSelection ./ ./install/installMyFWK.sh" 
+  "MyCMSSWAnalysisTools ./ ./install.sh"
 )
 cmsswVer=CMSSW_4_2_8_patch7
 ###################
@@ -33,12 +33,12 @@ cd $CMSSW_BASE
 for idx in ${!pkgs[*]}; do
   cd $CMSSW_BASE/`echo ${pkgs[$idx]} | awk '{print $2}'`
   getGitPackage `echo ${pkgs[$idx]} | awk '{print $1}'`
-  if  [ "X`echo ${pkgs[$idx]} | awk '{print $3}'`" != "X" ]; then
-    git checkout `echo ${pkgs[$idx]} | awk '{print $3}'`
-  fi
   if  [ "X`echo ${pkgs[$idx]} | awk '{print $4}'`" != "X" ]; then
-    echo "calling additional command "`echo ${pkgs[$idx]} | awk '{print $4}'`
-    eval `echo ${pkgs[$idx]} | awk '{print $4}'`
+    git checkout `echo ${pkgs[$idx]} | awk '{print $4}'`
+  fi
+  if  [ "X`echo ${pkgs[$idx]} | awk '{print $3}'`" != "X" ]; then
+    echo "calling additional command "`echo ${pkgs[$idx]} | awk '{print $3}'`
+    eval `echo ${pkgs[$idx]} | awk '{print $3}'`
   fi
   cd $CMSSW_BASE
 done

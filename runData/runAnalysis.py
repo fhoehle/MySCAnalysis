@@ -7,5 +7,6 @@ import  cmsswAnalysisTools
 import dataSamples
 cfg = os.getenv('CMSSW_BASE')+'/DiLeptonicSelection/patRefSel_diLep_cfg.py'
 myAnalysis = cmsswAnalysisTools.cmsswAnalysis(dataSamples.dataDatasets,cfg)
+sys.argv.append('--runOnData')
 myAnalysis.readOpts()
 myAnalysis.startAnalysis()

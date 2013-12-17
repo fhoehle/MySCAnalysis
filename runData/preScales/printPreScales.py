@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import argparse,csv,sys,os
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools')
-from Tools.tools import executeCommandSameEnv,getTimeStamp
+from Tools.coreTools import executeCommandSameEnv,getTimeStamp
 parser = argparse.ArgumentParser()
 parser.add_argument('-j',dest='jsonFile',help='jsonFile used for trigger checking')
 parser.add_argument('--trigger',help='trigger to be checked for prescales')

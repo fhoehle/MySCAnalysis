@@ -3,6 +3,7 @@ ttbarFileList = [];ttbarNoCorrFileList = []
 testFiles = {
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
     "localFile": ttbarFileList    ,"label":"TTbarSignal"
+    ,"datasetName":'/TT_TuneZ2_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"xSec":157
     ,"color":ROOT.kGreen+1
     ,"addOptions":"runOnTTbar=True"
@@ -10,6 +11,7 @@ testFiles = {
   },
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarFileList  ,"label":"TTbarBackground"
+    ,"datasetName":"/TT_TuneZ2_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM"
     ,"xSec":157
     ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True N1TTbarDiLepBck=True"
@@ -18,12 +20,14 @@ testFiles = {
   ,"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
     "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrSignal"
     ,"xSec":157
+    ,'datasetName':'/TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"color":ROOT.kGreen+1
     ,"addOptions":"runOnTTbar=True"
     ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
   ,"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrSignal"
+    ,'datasetName':'/TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"xSec":157
     ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True N1TTbarDiLepBck=True"

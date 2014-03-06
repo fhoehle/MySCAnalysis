@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # run cmssw analysis
 import FWCore.ParameterSet.Config as cms
 import os,sys

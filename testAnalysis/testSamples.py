@@ -2,7 +2,7 @@ import ROOT
 testFiles = {
   "ZZJetsTo2L2Q_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/ZZJetsTo2L2Q_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FE49F29C-E703-E111-AE65-1CC1DE0510A8.root"
-    ,"crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
+    #,"crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
     ,"label":"ZZJetsTo2L2Q"
     ,"xSec":0.776524 # https://twiki.cern.ch/twiki/bin/view/CMS/HiggsToTauTauWorkingSummer2013
     ,"color":ROOT.kCyan+1
@@ -10,7 +10,7 @@ testFiles = {
   }
   ,"ZZJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
     "localFile": "/store/user/fhohle//OfficialSamples/ZZJetsTo2L2Nu_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FAB8CFD9-66FF-E011-A567-001F29C49312.root"
-    ,"crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
+    #,"crabConfig":{"GRID":{"se_black_list":"T2_UK_London_IC"}}
     ,"label":"ZZJetsTo2L2Nu"
     ,"xSec":0.250597
     ,"color":ROOT.kCyan+2
@@ -32,7 +32,7 @@ testFiles = {
   }
   ,"WZJetsTo2L2Q_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/WZJetsTo2L2Q_TuneZ2_7TeV-madgraph-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FCFF1FD3-8AF3-E011-8E4F-0017A4771020.root"
-    ,"crabConfig":{"GRID":{"se_black_list":"T2_TW_Taiwan"}}
+    #,"crabConfig":{"GRID":{"se_black_list":"T2_TW_Taiwan"}}
     ,"xSec":18.2
     ,"label":"WZJetsTo2L2Q"    
     ,"color":ROOT.kCyan-4
@@ -64,7 +64,7 @@ testFiles = {
     ,"xSec":31314
     ,"label":"WJetsToLNu"
     ,"color":ROOT.kRed+1
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":3000}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":3000}}
     ,'datasetName':None
   }
   ,"T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -72,7 +72,7 @@ testFiles = {
     ,"xSec":7.87 # same like nominal
     ,"label":"T-scaledown-tW-channel-DR"
     ,"color":ROOT.kMagenta+1
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"T_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -80,7 +80,7 @@ testFiles = {
     ,"xSec":7.87 # same like nominal
     ,"label":"T-scaleup-tW-channel-DR"
     ,"color":ROOT.kMagenta+2
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"T_TuneZ2_scaleup_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -88,7 +88,7 @@ testFiles = {
     ,"xSec":7.87 # same like nominal
     ,"label":"T-scaleup-tW-channel-DS"
     ,"color":ROOT.kMagenta+3
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"Tbar_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -96,7 +96,7 @@ testFiles = {
     ,"xSec":7.87 # same like nominal
     ,"label":"Tbar-scaledown-tW-channel-DR"
     ,"color":ROOT.kMagenta+4
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"Tbar_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -104,7 +104,7 @@ testFiles = {
     ,"xSec":7.87 # same like nominal
     ,"label":"Tbar-scaleup-tW-channel-DR"
     ,"color":ROOT.kMagenta
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"Tbar_TuneZ2_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -112,7 +112,7 @@ testFiles = {
     ,"xSec":7.87
     ,"label":"Tbar-tW-channel-DS"
     ,"color":ROOT.kMagenta-1
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"T_TuneZ2_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -120,7 +120,7 @@ testFiles = {
     ,"xSec":7.87
     ,"label":"T-tW-channel-DR"
     ,"color":ROOT.kMagenta-2
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"Tbar_TuneZ2_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -128,7 +128,7 @@ testFiles = {
     ,"xSec":7.87
     ,"label":"Tbar-tW-channel-DR"
     ,"color":ROOT.kMagenta-5
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"T_TuneZ2_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
@@ -136,16 +136,16 @@ testFiles = {
     ,"xSec":7.87
     ,"label":"T-tW-channel-DS"
     ,"color":ROOT.kMagenta-3
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
   ,"Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F432634E-A02B-E111-9FC2-E0CB4EA0A917.root"
     ,"xSec":7.87
-    ,"label":"Tbar-tW-channel-DS"
+    ,"label":"Tbar-scaledown-tW-channel-DS"
     ,"color":ROOT.kMagenta-4
     ,'datasetName':None
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
   }
   ,"Tbar_TuneZ2_s-channel_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
     "localFile":"/store/user/fhohle/OfficialSamples/Tbar_TuneZ2_s-channel_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F4D77C89-79F9-E011-82E8-001A92811746.root"
@@ -180,13 +180,13 @@ testFiles = {
     ,"xSec":3048
     ,"label":"DYJetsToLL-M-50"
     ,"color":ROOT.kRed-4
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":2000}}
+    #,"crabConfig":{"CMSSW":{"number_of_jobs":2000}}
     ,'datasetName':None
   }
   ,"DYJetsToLL_M-10To50_TuneZ2_7TeV-madgraph__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
   "localFile":"/store/user/fhohle/OfficialSamples/DYJetsToLL_M-10To50_TuneZ2_7TeV-madgraph__Fall11-PU_S6_START42_V14B-v1__AODSIM/020B21F7-AD3A-E111-8440-0018F3D0969C.root"
     ,"xSec":12782.63
-    ,"label":"DYJetsToLL-M-50"
+    ,"label":"DYJetsToLL-M-10To50"
     ,"color":ROOT.kRed-4
     ,'datasetName':None
   }

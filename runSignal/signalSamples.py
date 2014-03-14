@@ -7,7 +7,9 @@ testFiles = {
     ,"xSec":157
     ,"color":ROOT.kGreen+1
     ,"addOptions":"runOnTTbar=True selectSignal=True"
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
+    ,"crabConfig":{
+          #"CMSSW":{"number_of_jobs":1500}
+          "GRID":{"se_white_list":"T2_DE_RWTH"}}
   },
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarFileList  ,"label":"TTbarBackground"
@@ -15,7 +17,9 @@ testFiles = {
     ,"xSec":157
     ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True selectBkg=True"
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
+    ,"crabConfig":{
+        #"CMSSW":{"number_of_jobs":1500}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
   ,"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
     "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrSignal"
@@ -23,7 +27,9 @@ testFiles = {
     ,'datasetName':'/TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"color":ROOT.kGreen+1
     ,"addOptions":"runOnTTbar=True selectSignal=True"
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
+    ,"crabConfig":{
+        #"CMSSW":{"number_of_jobs":1500}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
   ,"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrBackground"
@@ -31,7 +37,9 @@ testFiles = {
     ,"xSec":157
     ,"color":ROOT.kTeal + 3
     ,"addOptions":"runOnTTbar=True selectBkg=True"
-    ,"crabConfig":{"CMSSW":{"number_of_jobs":1500},"GRID":{"se_white_list":"T2_DE_RWTH"}}
+    ,"crabConfig":{
+        #"CMSSW":{"number_of_jobs":1500}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
 
 }

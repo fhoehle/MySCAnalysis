@@ -2,7 +2,7 @@ import ROOT
 ttbarFileList = [];ttbarNoCorrFileList = []
 testFiles = {
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
-    "localFile": ttbarFileList    ,"label":"TTbarSignal"
+    "localFile": ttbarFileList    ,"backupLocalFile":"/user/hoehle/CMSSW/TEMP/Samples/0051A2ED-482A-E111-9863-0026189438F7.root", "label":"TTbarSignal"
     ,"datasetName":'/TT_TuneZ2_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"xSec":157
     ,"color":ROOT.kGreen+1
@@ -12,7 +12,7 @@ testFiles = {
           "GRID":{"se_white_list":"T2_DE_RWTH"}}
   },
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
-    "localFile": ttbarFileList  ,"label":"TTbarBackground"
+    "localFile": ttbarFileList  ,"backupLocalFile":"/user/hoehle/CMSSW/TEMP/Samples/0051A2ED-482A-E111-9863-0026189438F7.root","label":"TTbarBackground"
     ,"datasetName":"/TT_TuneZ2_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM"
     ,"xSec":157
     ,"color":ROOT.kTeal + 3
@@ -22,7 +22,7 @@ testFiles = {
         "GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
   ,"TT_noCorr_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
-    "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrSignal"
+    "localFile": ttbarNoCorrFileList , "backupLocalFile":'/user/hoehle/CMSSW/TEMP/Samples/FED2AF8E-6CC3-E111-B412-003048FFCC1E.root'   ,"label":"TTbarNoCorrSignal"
     ,"xSec":157
     ,'datasetName':'/TT_noCorr_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"color":ROOT.kGreen+1
@@ -32,7 +32,7 @@ testFiles = {
         "GRID":{"se_white_list":"T2_DE_RWTH"}}
   }
   ,"TT_noCorr_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
-    "localFile": ttbarNoCorrFileList    ,"label":"TTbarNoCorrBackground"
+    "localFile": ttbarNoCorrFileList   , "backupLocalFile":'/user/hoehle/CMSSW/TEMP/Samples/FED2AF8E-6CC3-E111-B412-003048FFCC1E.root' ,"label":"TTbarNoCorrBackground"
     ,'datasetName':'/TT_noCorr_7TeV-mcatnlo/Fall11-PU_S6_START42_V14B-v1/AODSIM'
     ,"xSec":157
     ,"color":ROOT.kTeal + 3

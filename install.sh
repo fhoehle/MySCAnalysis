@@ -1,7 +1,7 @@
 #!/bin/bash
 pkgs=(
-  "DiLeptonicSelection ./ ./install/installMyFWK.sh" 
-  "MyCMSSWAnalysisTools ./ ./install.sh"
+  "DiLeptonicSelection  $CMSSW_BASE ./install/installMyFWK.sh" 
+  "MyCMSSWAnalysisTools  $CMSSW_BASE ./install.sh"
 )
 cmsswVer=CMSSW_4_2_8_patch7
 ###################
@@ -31,7 +31,7 @@ cd $CMSSW_BASE
 #set -e
 # install my packages
 for idx in ${!pkgs[*]}; do
-  cd $CMSSW_BASE/`echo ${pkgs[$idx]} | awk '{print $2}'`
+  cd `echo ${pkgs[$idx]} | awk '{print $2}'`
   getGitPackage `echo ${pkgs[$idx]} | awk '{print $1}'`
   if  [ "X`echo ${pkgs[$idx]} | awk '{print $4}'`" != "X" ]; then
     git checkout `echo ${pkgs[$idx]} | awk '{print $4}'`

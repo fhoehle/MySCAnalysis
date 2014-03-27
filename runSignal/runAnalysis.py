@@ -6,6 +6,7 @@ import sys
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import  cmsswAnalysisTools
 import signalSamples
+print "called with "," ".join(sys.argv)
 cfg = os.getenv('CMSSW_BASE')+'/DiLeptonicSelection/patRefSel_diLep_cfg.py'
 myAnalysis = cmsswAnalysisTools.cmsswAnalysis(signalSamples.testFiles,cfg)
 myAnalysis.readOpts()

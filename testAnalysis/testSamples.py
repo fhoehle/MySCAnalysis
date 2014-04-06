@@ -67,46 +67,46 @@ testFiles = {
     #,"crabConfig":{"CMSSW":{"number_of_jobs":3000}}
     ,'datasetName':None
   }
-  ,"T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F4CA8516-5256-E111-9A2E-001EC9D7FA1C.root"
-    ,"xSec":7.87 # same like nominal
-    ,"label":"T-scaledown-tW-channel-DR"
-    ,"color":ROOT.kMagenta+1
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-    ,'datasetName':None
-  }
-  ,"T_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F87DDC98-3A56-E111-9596-001EC9D8D49F.root"
-    ,"xSec":7.87 # same like nominal
-    ,"label":"T-scaleup-tW-channel-DR"
-    ,"color":ROOT.kMagenta+2
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-    ,'datasetName':None
-  }
-  ,"T_TuneZ2_scaleup_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaleup_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FAEA8086-B331-E111-AE45-90E6BA19A242.root"
-    ,"xSec":7.87 # same like nominal
-    ,"label":"T-scaleup-tW-channel-DS"
-    ,"color":ROOT.kMagenta+3
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-    ,'datasetName':None
-  }
-  ,"Tbar_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FE8D1934-3D56-E111-9355-20CF3027A626.root"
-    ,"xSec":7.87 # same like nominal
-    ,"label":"Tbar-scaledown-tW-channel-DR"
-    ,"color":ROOT.kMagenta+4
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-    ,'datasetName':None
-  }
-  ,"Tbar_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FC4D2E10-5256-E111-8E38-90E6BA0D09AD.root"
-    ,"xSec":7.87 # same like nominal
-    ,"label":"Tbar-scaleup-tW-channel-DR"
-    ,"color":ROOT.kMagenta
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-    ,'datasetName':None
-  }
+#  ,"T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F4CA8516-5256-E111-9A2E-001EC9D7FA1C.root"
+#    ,"xSec":7.87 # same like nominal
+#    ,"label":"T-scaledown-tW-channel-DR"
+#    ,"color":ROOT.kMagenta+1
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#    ,'datasetName':None
+#  }
+#  ,"T_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F87DDC98-3A56-E111-9596-001EC9D8D49F.root"
+#    ,"xSec":7.87 # same like nominal
+#    ,"label":"T-scaleup-tW-channel-DR"
+#    ,"color":ROOT.kMagenta+2
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#    ,'datasetName':None
+#  }
+#  ,"T_TuneZ2_scaleup_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/T_TuneZ2_scaleup_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FAEA8086-B331-E111-AE45-90E6BA19A242.root"
+#    ,"xSec":7.87 # same like nominal
+#    ,"label":"T-scaleup-tW-channel-DS"
+#    ,"color":ROOT.kMagenta+3
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#    ,'datasetName':None
+#  }
+#  ,"Tbar_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FE8D1934-3D56-E111-9355-20CF3027A626.root"
+#    ,"xSec":7.87 # same like nominal
+#    ,"label":"Tbar-scaledown-tW-channel-DR"
+#    ,"color":ROOT.kMagenta+4
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#    ,'datasetName':None
+#  }
+#  ,"Tbar_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaleup_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FC4D2E10-5256-E111-8E38-90E6BA0D09AD.root"
+#    ,"xSec":7.87 # same like nominal
+#    ,"label":"Tbar-scaleup-tW-channel-DR"
+#    ,"color":ROOT.kMagenta
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#    ,'datasetName':None
+#  }
   ,"Tbar_TuneZ2_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
     "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/FE1BA52C-15F4-E011-BA40-00261894385D.root"
     ,"xSec":7.87
@@ -139,14 +139,14 @@ testFiles = {
     #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
     ,'datasetName':None
   }
-  ,"Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
-    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F432634E-A02B-E111-9FC2-E0CB4EA0A917.root"
-    ,"xSec":7.87
-    ,"label":"Tbar-scaledown-tW-channel-DS"
-    ,"color":ROOT.kMagenta-4
-    ,'datasetName':None
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
-  }
+#  ,"Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {
+#    "localFile":"/store/user/fhohle//OfficialSamples/Tbar_TuneZ2_scaledown_tW-channel-DS_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F432634E-A02B-E111-9FC2-E0CB4EA0A917.root"
+#    ,"xSec":7.87
+#    ,"label":"Tbar-scaledown-tW-channel-DS"
+#    ,"color":ROOT.kMagenta-4
+#    ,'datasetName':None
+#    #,"crabConfig":{"CMSSW":{"number_of_jobs":100}}
+#  }
   ,"Tbar_TuneZ2_s-channel_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":{
     "localFile":"/store/user/fhohle/OfficialSamples/Tbar_TuneZ2_s-channel_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM/F4D77C89-79F9-E011-82E8-001A92811746.root"
     ,"xSec":1.49
@@ -204,20 +204,20 @@ testFiles = {
     ,'label':'QCD_Pt-20to30_EMEnriched'
     ,"color":ROOT.kYellow+1
   }
-  ,'QCD_Pt-30to80_EMEnriched_TuneZ2_7TeV-pythia__Fall11-PU_S6_START42_V14B-v1__AODSIM':{
-    'localFile':None
-    ,'xSec':3.63E6 #AN2011_186_v14
-    ,'datasetName':'/QCD_Pt-30to80_EMEnriched_TuneZ2_7TeV-pythia/Fall11-PU_S6_START42_V14B-v1/AODSIM'
-    ,'label':'QCD_Pt-30to80_EMEnriched'
-    ,"color":ROOT.kYellow+2
-  }
-  ,'QCD_Pt-80to170_EMEnriched_TuneZ2_7TeV-pythia6__Fall11-PU_S6_START42_V14B-v2__AODSIM':{
-    'localFile':None
-    ,'xSec':143E3 #AN2011_186_v14
-    ,'datasetName':'/QCD_Pt-80to170_EMEnriched_TuneZ2_7TeV-pythia6/Fall11-PU_S6_START42_V14B-v2/AODSIM'
-    ,'label':'QCD_Pt-80to170_EMEnriched'
-    ,"color":ROOT.kYellow+3
-  } 
+#  ,'QCD_Pt-30to80_EMEnriched_TuneZ2_7TeV-pythia__Fall11-PU_S6_START42_V14B-v1__AODSIM':{
+#    'localFile':None
+#    ,'xSec':3.63E6 #AN2011_186_v14
+#    ,'datasetName':'/QCD_Pt-30to80_EMEnriched_TuneZ2_7TeV-pythia/Fall11-PU_S6_START42_V14B-v1/AODSIM'
+#    ,'label':'QCD_Pt-30to80_EMEnriched'
+#    ,"color":ROOT.kYellow+2
+#  }
+#  ,'QCD_Pt-80to170_EMEnriched_TuneZ2_7TeV-pythia6__Fall11-PU_S6_START42_V14B-v2__AODSIM':{
+#    'localFile':None
+#    ,'xSec':143E3 #AN2011_186_v14
+#    ,'datasetName':'/QCD_Pt-80to170_EMEnriched_TuneZ2_7TeV-pythia6/Fall11-PU_S6_START42_V14B-v2/AODSIM'
+#    ,'label':'QCD_Pt-80to170_EMEnriched'
+#    ,"color":ROOT.kYellow+3
+#  } 
   ,'QCD_Pt-20to30_BCtoE_TuneZ2_7TeV-pythia6__Fall11-PU_S6_START42_V14B-v1__AODSIM':{
     'localFile':None
     ,'xSec':139E3 #AN2011_186_v14
@@ -225,11 +225,11 @@ testFiles = {
     ,'label':'QCD_Pt-20to30_BCtoE'
     ,"color":ROOT.kYellow+4
   }
-  ,'QCD_Pt-30to80_BCtoE_TuneZ2_7TeV-pythia6__Fall11-PU_S6_START42_V14B-v1__AODSIM':{
-    'localFile':None
-    ,'xSec':144E3 #AN2011_186_v14
-    ,'datasetName':'/QCD_Pt-30to80_BCtoE_TuneZ2_7TeV-pythia6/Fall11-PU_S6_START42_V14B-v1/AODSIM'
-    ,'label':'QCD_Pt-30to80_BCtoE'
-    ,"color":ROOT.kYellow+5
-  }
+#  ,'QCD_Pt-30to80_BCtoE_TuneZ2_7TeV-pythia6__Fall11-PU_S6_START42_V14B-v1__AODSIM':{
+#    'localFile':None
+#    ,'xSec':144E3 #AN2011_186_v14
+#    ,'datasetName':'/QCD_Pt-30to80_BCtoE_TuneZ2_7TeV-pythia6/Fall11-PU_S6_START42_V14B-v1/AODSIM'
+#    ,'label':'QCD_Pt-30to80_BCtoE'
+#    ,"color":ROOT.kYellow+5
+#  }
 }

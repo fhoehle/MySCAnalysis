@@ -28,6 +28,7 @@ if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
   echo "missing CMSSW_BASE cmsenv"
 fi
 cd $CMSSW_BASE
+git cms-init
 #set -e
 # install my packages
 for idx in ${!pkgs[*]}; do

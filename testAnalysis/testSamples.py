@@ -64,7 +64,7 @@ testFiles = {
     ,"xSec":31314
     ,"label":"WJetsToLNu"
     ,"color":ROOT.kRed+1
-    #,"crabConfig":{"CMSSW":{"number_of_jobs":3000}}
+    ,"crabConfig":{"CMSSW":{"events_per_job":20000}}
     ,'datasetName':None
   }
 #  ,"T_TuneZ2_scaledown_tW-channel-DR_7TeV-powheg-tauola__Fall11-PU_S6_START42_V14B-v1__AODSIM":  {

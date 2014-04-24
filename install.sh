@@ -22,10 +22,12 @@ fi
 echo "Installing/Updating SC analysis "
 #
 if [ "X$SCRAM_ARCH" != "Xslc5_amd64_gcc434" ]; then 
-  echo "missing/wrong SCRAM_ARCH"
+  echo "missing/wrong SCRAM_ARCH: $SCRAM_ARCH"
+  exit 1
 fi
 if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
   echo "missing CMSSW_BASE cmsenv"
+  exit 1
 fi
 cd $CMSSW_BASE
 git cms-init

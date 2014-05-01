@@ -34,7 +34,6 @@ dsMET =[
 '/MET/Run2011A-05Aug2011-v1/AOD'
 ]
 dataDatasets = {}
-dasC = dasTools.myDasClient()
 for ds in dsDoubleMu:
   ""
   dsLabel = myTools.getLabelFromDatasetName(ds)
@@ -42,8 +41,12 @@ for ds in dsDoubleMu:
   print dsJSON.lstrip(os.getenv('CMSSW_BASE'))
   dsLumiList = None
   if not os.path.isfile(dsJSON):
+    oldSsArgv = sys.argv
+    sys.argv=[]
+    dasC = dasTools.myDasClient()
     dsLumiList = dasC.getJsonOfDataset(ds)
     dsLumiList.writeJSON(dsJSON)
+    sys.argv = oldSsArgv
   else:
     dsLumiList = LumiList(compactList=json.load(open(dsJSON)))
   dsRuns = dsLumiList.compactList.keys()

@@ -34,7 +34,7 @@ dsMET =[
 '/MET/Run2011A-05Aug2011-v1/AOD'
 ]
 dataDatasets = {}
-for ds in dsDoubleMu:
+for ds in dsDoubleMu+dsDoubleE+dsEMu+dsMET:
   ""
   dsLabel = myTools.getLabelFromDatasetName(ds)
   dsJSON = os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/'+dsLabel+'_JSON.txt'
@@ -52,6 +52,7 @@ for ds in dsDoubleMu:
   dsRuns = dsLumiList.compactList.keys()
   dataDatasets[myTools.getStringFromDatasetName(ds)] = {
     'xSec':None
+    ,'localFile':None
     ,'datasetName':ds
     ,'label':'Data_'+myTools.getLabelFromDatasetName(ds)
     ,"crabConfig":{

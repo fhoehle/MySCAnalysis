@@ -30,7 +30,9 @@ if [[ ! "$CMSSW_BASE" =~ "$cmsswVer" ]]; then
   exit 1
 fi
 cd $CMSSW_BASE
-git cms-init
+if [ ! -d "$CMSSW_BASE/src/.git" ]; then
+  git cms-init
+fi
 #set -e
 # install my packages
 for idx in ${!pkgs[*]}; do

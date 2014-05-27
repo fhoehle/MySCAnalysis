@@ -47,6 +47,14 @@ class createDatasampleFile(object):
       'label':dsLabel, 'json':dsJsonFilename , 'dataset':dataset,"goldenJson":goldenJson   }
     )
   def createFile(self):
+    if not hasattr(self,'dataDatasets'):
+      self.createDataDatasets()
+    with open(self.filename,'w') as outputFile:
+      outputFile.write('import os\n'+'dataDatasets = {\n')
+      for j,(k,i) in enumerate(self.dataDatasets.iteritems()):
+        outputFile.write(("," if j != 0 else "") +"'"+k+"':"+i)
+      outputFile.write('}')
+  def createDataDatasets(self):
     self.dataDatasets = {}
     for d in self.datasets:
       dsLumiList = None
@@ -73,15 +81,30 @@ class createDatasampleFile(object):
         '\t,"color":0\n'
         '\t,"runRange":"'+str(dsRuns[0])+"-"+str(dsRuns[-1])+'"\n'
       '\t}\n');
-      with open(self.filename,'w') as outputFile:
-        outputFile.write('import os\n'+'dataDatasets = {\n')
-        for k,i in self.dataDatasets.iteritems():
-          outputFile.write("'"+k+"':"+i)
-        outputFile.write('}')
 #######################
-diLepton =  createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diLeptonData.py')
-for ds in dsDoubleMu+dsDoubleE+dsEMu:#+dsMET:
+diMu =  createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diMuonData.py')
+diEl =  createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diElectronData.py')
+MuE =   createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/MuonElectronData.py')
+##############
+for ds in dsDoubleMu:
+  diMu.addDataset(ds)
+diMu.createFile()
+for ds in dsDoubleE:
+  diEl.addDataset(ds)
+diEl.createFile()
+for ds in dsEMu:
   ""
-  diLepton.addDataset(ds)
+  MuE.addDataset(ds)
+MuE.createFile()
+#######################
+print "created ",diMu.filename
+print "created ",diEl.filename
+print "created ",MuE.filename
+#########################
+diLepton =  createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diLeptonData.py')
+diLepton.datasets =  diMu.datasets + diEl.datasets + MuE.datasets
+diLepton.dataDatasets = {}
+diLepton.dataDatasets.update(diMu.dataDatasets); diLepton.dataDatasets.update(diEl.dataDatasets); diLepton.dataDatasets.update(MuE.dataDatasets)
 diLepton.createFile()
 print "created ",diLepton.filename
+

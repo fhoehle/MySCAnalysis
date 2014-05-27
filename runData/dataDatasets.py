@@ -26,15 +26,15 @@ dsEMu =[
  '/MuEG/Run2011A-May10ReReco-v1/AOD',
  '/MuEG/Run2011B-PromptReco-v1/AOD'
 ]
-dsMET =[
-'/METBTag/Run2011A-May10ReReco-v1/AOD',
-#'/MET/Run2011B-PromptReco-v1/AOD',
-'/MET/Run2011A-PromptReco-v6/AOD',
-'/MET/Run2011A-PromptReco-v4/AOD',
-'/MET/Run2011A-05Aug2011-v1/AOD'
-]
+#dsMET =[
+#'/METBTag/Run2011A-May10ReReco-v1/AOD',
+##'/MET/Run2011B-PromptReco-v1/AOD',
+#'/MET/Run2011A-PromptReco-v6/AOD',
+#'/MET/Run2011A-PromptReco-v4/AOD',
+#'/MET/Run2011A-05Aug2011-v1/AOD'
+#]
 dataDatasets = {}
-for ds in dsDoubleMu+dsDoubleE+dsEMu+dsMET:
+for ds in dsDoubleMu+dsDoubleE+dsEMu:#+dsMET:
   ""
   dsLabel = myTools.getLabelFromDatasetName(ds)
   dsJSON = os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/'+dsLabel+'_JSON.txt'

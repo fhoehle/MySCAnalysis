@@ -35,33 +35,31 @@ dsEMu =[
 #'/MET/Run2011A-PromptReco-v4/AOD',
 #'/MET/Run2011A-05Aug2011-v1/AOD'
 #]
-dataDatasets = {}
-for ds in dsDoubleMu+dsDoubleE+dsEMu:#+dsMET:
+
+#######################
+diMu =  datasetTools.createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diMuonData.py')
+diEl =  datasetTools.createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diElectronData.py')
+MuE =   datasetTools.createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/MuonElectronData.py')
+##############
+for ds in dsDoubleMu:
+  diMu.addDataset(ds)
+diMu.createFile()
+for ds in dsDoubleE:
+  diEl.addDataset(ds)
+diEl.createFile()
+for ds in dsEMu:
   ""
-  dsLabel = myTools.getLabelFromDatasetName(ds)
-  dsJSON = os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/'+dsLabel+'_JSON.txt'
-  print dsJSON.lstrip(os.getenv('CMSSW_BASE'))
-  dsLumiList = None
-  if not os.path.isfile(dsJSON):
-    oldSsArgv = sys.argv
-    sys.argv=[]
-    dasC = dasTools.myDasClient()
-    dsLumiList = dasC.getJsonOfDataset(ds)
-    dsLumiList.writeJSON(dsJSON)
-    sys.argv = oldSsArgv
-  else:
-    dsLumiList = LumiList(compactList=json.load(open(dsJSON)))
-  dsRuns = dsLumiList.compactList.keys()
-  dataDatasets[myTools.getStringFromDatasetName(ds)] = {
-    'xSec':None
-    ,'localFile':None
-    ,'datasetName':ds
-    ,'label':'Data_'+myTools.getLabelFromDatasetName(ds)
-    ,"crabConfig":{
-      "CMSSW":{"lumis_per_job":5
-        ,"lumi_mask": os.getenv('CMSSW_BASE')+'/'+os.path.relpath(dsJSON,os.getenv('CMSSW_BASE'))
-        ,"total_number_of_lumis" : -1}}
-    ,'color':0
-    ,"runRange":str(dsRuns[0])+"-"+dsRuns[-1]
-  }
+  MuE.addDataset(ds)
+MuE.createFile()
+#######################
+print "created ",diMu.filename
+print "created ",diEl.filename
+print "created ",MuE.filename
+#########################
+diLepton =  datasetTools.createDatasampleFile(os.getenv('CMSSW_BASE')+'/MySCAnalysis/runData/diLeptonData.py')
+diLepton.datasets =  diMu.datasets + diEl.datasets + MuE.datasets
+diLepton.dataDatasets = {}
+diLepton.dataDatasets.update(diMu.dataDatasets); diLepton.dataDatasets.update(diEl.dataDatasets); diLepton.dataDatasets.update(MuE.dataDatasets)
+diLepton.createFile()
+print "created ",diLepton.filename
 

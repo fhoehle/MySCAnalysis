@@ -1,10 +1,6 @@
 import os,sys,json
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools')
-import MyDASTools.dasTools as dasTools
 import Tools.datasetTools as datasetTools
-import Tools.tools as myTools
-import Tools.coreTools as coreTools
-from FWCore.PythonUtilities.LumiList   import LumiList
 dsDoubleMu = [
  '/DoubleMu/Run2011B-PromptReco-v1/AOD',
  '/DoubleMu/Run2011A-PromptReco-v6/AOD',

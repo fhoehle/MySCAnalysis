@@ -1,4 +1,4 @@
-import os,sys,json
+import os,sys
 sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools')
 import Tools.datasetTools as datasetTools
 dsDoubleMu = [

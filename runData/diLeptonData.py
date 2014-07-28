@@ -16,7 +16,7 @@ dataDatasets = {
 	}
 ,'DoubleMu_Run2011A-PromptReco-v6':{ 
  	"xSec":None
-	,"localFile":None
+	,"localFile":'root://xrootd-cms.infn.it//store/data/Run2011A/DoubleMu/AOD/PromptReco-v6/000/172/635/021B63DF-06C1-E011-85ED-003048F118DE.root'
 	,"datasetName":"/DoubleMu/Run2011A-PromptReco-v6/AOD"
 	,"label":"Data_DoubleMu_Run2011A-PromptReco-v6"
 	,"datasetJSON":"/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/runData/jsonFiles/DoubleMu_Run2011A-PromptReco-v6_2014-05-31_00-39-09_JSON.txt"

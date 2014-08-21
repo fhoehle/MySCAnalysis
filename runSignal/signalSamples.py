@@ -9,7 +9,9 @@ testFiles = {
     ,"addOptions":"runOnTTbar=True selectSignal=True"
     ,"crabConfig":{
           #"CMSSW":{"number_of_jobs":1500}
-          "GRID":{"se_white_list":"T2_DE_RWTH"}}
+          "GRID":{"se_white_list":"T2_DE_RWTH"}
+	  ,"USER":{"publish_data_name":"TT_TuneZ2_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1_Signal"}
+	}
   },
   "TT_TuneZ2_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarFileList  ,"backupLocalFile":"/user/hoehle/CMSSW/TEMP/Samples/0051A2ED-482A-E111-9863-0026189438F7.root","label":"TTbarBackground"
@@ -19,7 +21,9 @@ testFiles = {
     ,"addOptions":"runOnTTbar=True selectBkg=True"
     ,"crabConfig":{
         #"CMSSW":{"number_of_jobs":1500}
-        "GRID":{"se_white_list":"T2_DE_RWTH"}}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}
+	,"USER":{"publish_data_name":"TT_TuneZ2_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1_Bck"}
+	}
   }
   ,"TT_noCorr_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Signal": {
     "localFile": ttbarNoCorrFileList , "backupLocalFile":'/user/hoehle/CMSSW/TEMP/Samples/FED2AF8E-6CC3-E111-B412-003048FFCC1E.root'   ,"label":"TTbarNoCorrSignal"
@@ -29,7 +33,9 @@ testFiles = {
     ,"addOptions":"runOnTTbar=True selectSignal=True"
     ,"crabConfig":{
         #"CMSSW":{"number_of_jobs":1500}
-        "GRID":{"se_white_list":"T2_DE_RWTH"}}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}
+	,"USER":{"publish_data_name":"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1_Signal"}
+	}
   }
   ,"TT_noCorr_7TeV-mcatnlo__Fall11-PU_S6_START42_V14B-v1__AODSIM_Bck": {
     "localFile": ttbarNoCorrFileList   , "backupLocalFile":'/user/hoehle/CMSSW/TEMP/Samples/FED2AF8E-6CC3-E111-B412-003048FFCC1E.root' ,"label":"TTbarNoCorrBackground"
@@ -39,7 +45,9 @@ testFiles = {
     ,"addOptions":"runOnTTbar=True selectBkg=True"
     ,"crabConfig":{
         #"CMSSW":{"number_of_jobs":1500}
-        "GRID":{"se_white_list":"T2_DE_RWTH"}}
+        "GRID":{"se_white_list":"T2_DE_RWTH"}
+        ,"USER":{"publish_data_name":"TT_noCorr_7TeV-mcatnlo_Fall11-PU_S6_START42_V14B-v1_Bck"}
+	}
   }
 
 }

@@ -41,21 +41,39 @@ def mergePlots(plots,debug=False,scaleWithLumis=False):
     print "final ",resMerged
   return resMerged,merging
 #############
-def plotHistDict(hs,plts,postfix):
+def plotHistDict(hs,plts,postfix,legend=False):
   cans={}
   for h in hs:
-    cans[h] = plotHDict(h,plts,postfix)
+    cans[h] = plotHDict(h,plts,postfix,legend)
     cans[h].SaveAs( cans[h].GetName()+"_"+postfix+".pdf")
   return cans
 #####################
-def plotHDict(h,plts,postfix):
+class plotdataVsMC(object):
+  def __init__(self,h,dataHist,mcHists,reverseOrder=False):
+    self.can = ROOT.TCanvas("can_dataMC_"+h,h)
+    self.mcStack = MyHistFunctions_cfi.stackHists(mcHists) 
+    if reverseOrder:
+      self.mcStack.revertHistOrder()
+    self.dataHist = dataHist
+  def plot(self):
+    self.can.cd()
+    self.mcStack.createStack()
+    self.mcStack.plotStack(drawOpt="HIST")
+    self.dataHist.Draw("same "+(self.dataHist.myDrawOption if hasattr(self.dataHist,'myDrawOption') else "E1"))
+    self.legend=MyHistFunctions_cfi.myLegend(canvas=self.can)
+    self.legend.createLegend()
+    self.legend.drawLegend()
+###################
+def plotHDict(h,plts,postfix,legend=False):
     can = ROOT.TCanvas("c_"+h,h)
     for j,i in enumerate(plts.values()):
       plots=i['plots']
       #print plots
-      plots[h].SetLineColor(getattr(plots[h],"myColor") if hasattr(plots[h],"myColor") else j+1);
-      plots[h].Draw(("" if j == 0 else "sames")+(getattr(plots[h],"myDrawOption") if hasattr(plots[h],"myDrawOption") else "") )
-    legAdder =  MyHistFunctions_cfi.myLegend(canvas=can)#,debug=True)
-    legAdder.createLegend()
-    legAdder.drawLegend()
-    return copy.deepcopy(legAdder.canvas)
+      #plots[h].SetLineColor(getattr(plots[h],"myColor") if hasattr(plots[h],"myColor") else j+1);
+      plots[h].Draw(("" if j == 0 else "same")+(getattr(plots[h],"myDrawOption") if hasattr(plots[h],"myDrawOption") else "") )
+    if legend:
+      legAdder =  MyHistFunctions_cfi.myLegend(canvas=can)#,debug=True)
+      legAdder.createLegend()
+      legAdder.drawLegend()
+      setattr(can,'myLegend',legAdder)
+    return copy.deepcopy(can)

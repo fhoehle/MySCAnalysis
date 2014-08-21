@@ -1,7 +1,7 @@
 #!/bin/bash
 pkgs=(
-  "DiLeptonicSelection  $CMSSW_BASE ./install/installMyFWK.sh" 
-  "MyCMSSWAnalysisTools  $CMSSW_BASE ./install.sh"
+  "DiLeptonicSelection  $CMSSW_BASE ./install/installMyFWK.sh testSLC6" 
+  "MyCMSSWAnalysisTools  $CMSSW_BASE ./install.sh testSLC6"
 )
 cmsswVer=CMSSW_5_3_
 ###################

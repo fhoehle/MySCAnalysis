@@ -1,5 +1,5 @@
-#dataJobs = "/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/runData/Data_DiMuonOnly_DoubleMuRunB_Skim_Grid__2014-08-03_19-05-48/crabJobResults.JSON"
-remDataJobs = '/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/runData/Data_DiMuonOnly_OtherThanDoubleMuRunB_Skim_Grid__2014-08-14_00-44-57/crabJobResults.JSON'
+dataJobs = "/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/runData/Data_DiMuonOnly_DoubleMuRunB_Skim_Grid_2014-08-22_02-17-58/crabJobResults.JSON"
+#remDataJobs = '/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/runData/Data_DiMuonOnly_OtherThanDoubleMuRunB_Skim_Grid__2014-08-14_00-44-57/crabJobResults.JSON'
 
 #bkgJobs = "/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/testAnalysis/OtherBackgrounds_DiMuonOnly_Skim_Grid_2014-08-05_15-22-53/crabJobResults.JSON"
 bkgJobs = "/disk1/hoehle/CMSSW_4_2_8_patch7/MySCAnalysis/testAnalysis/OtherBackgrounds_DiMuonOnly_Skim_Grid_2014-08-19_21-20-04/crabJobResults.JSON"
@@ -114,11 +114,23 @@ def loopDatasets(dataS,silent=False):
     plts[l]['plots'].update(copy.deepcopy(dists.plots))
   return plts
 ####################
-#data = json.load(open(dataJobs))
-remData = json.load(open(remDataJobs))
-dataPlots = {}#loopDatasets(data)
-remDataPlots = loopDatasets(remData)
-dataPlots.update(remDataPlots)
+data = json.load(open(dataJobs))
+#remData = json.load(open(remDataJobs))
+allDataPlots = loopDatasets(data)
+dataDoubleMu = [
+	'DoubleMu_Run2011A-PromptReco-v4_part_0',
+	'DoubleMu_Run2011B-PromptReco-v1_part_0',
+	'DoubleMu_Run2011A-PromptReco-v6_part_0',
+	'DoubleMu_Run2011A-PromptReco-v4_part_1',
+	'DoubleMu_Run2011B-PromptReco-v1_part_1',
+	'DoubleMu_Run2011B-PromptReco-v1_part_2',
+	'DoubleMu_Run2011A-May10ReReco-v1_part_0',
+	'DoubleMu_Run2011A-05Aug2011-v1_part_1',
+	'DoubleMu_Run2011A-05Aug2011-v1_part_0'
+	]
+dataPlots = getInterestingSamples( dataDoubleMu , allDataPlots )
+#remDataPlots = loopDatasets(remData)
+#dataPlots.update(remDataPlots)
 #######################
 ##########################
 hists = dataPlots.values()[0]['plots'].keys()

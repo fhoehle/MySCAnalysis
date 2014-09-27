@@ -17,7 +17,10 @@ process.MyTTbarGenEvent10Parts = cms.EDProducer('MyTTbarGenEvent10Parts',
    genTag = cms.untracked.InputTag("genParticles")
 )
 
-process.diLepMcFilter = cms.EDFilter('DiLepMcFilter', ttbarEventTag = cms.untracked.InputTag("MyTTbarGenEvent10Parts")    )
+process.diLepMcFilter = cms.EDFilter('DiLepMcFilter', 
+  ttbarEventTag = cms.untracked.InputTag("MyTTbarGenEvent10Parts"),
+  invert = cms.bool(False)
+)
 
 process.out = cms.OutputModule("PoolOutputModule",
     fileName = cms.untracked.string('myMCatNLO_big_OutputFile.root'),

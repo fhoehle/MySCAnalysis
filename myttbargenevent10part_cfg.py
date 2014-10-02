@@ -1,5 +1,6 @@
+import sys
 import FWCore.ParameterSet.Config as cms
-
+print "called with: "," ".join(sys.argv)
 process = cms.Process("ADDOWNPARTICLESGENEVENT")
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
@@ -43,9 +44,12 @@ if "crab" not in sys.argv[0]:
                    VarParsing.multiplicity.list,
                    VarParsing.varType.string,
                    "Events to process")
+ options.register('skipEvents', 0, VarParsing.multiplicity.singleton, VarParsing.varType.int, "skip N events")
  options.parseArguments()
  if options.inputFiles != cms.untracked.vstring():
   process.source.fileNames=options.inputFiles
+ if options.skipEvents > 0:
+  process.source.skipEvents = cms.untracked.uint32(options.skipEvents)
  if options.maxEvents != '':
   process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(options.maxEvents))
  if options.eventsToProcess:

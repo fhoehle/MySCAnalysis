@@ -3,7 +3,6 @@ pkgs=(
   "DiLeptonicSelection  $CMSSW_BASE ./install/installMyFWK.sh" 
   "MyCMSSWAnalysisTools  $CMSSW_BASE ./install.sh" #"MyCMSSWAnalysisTools  $CMSSW_BASE ./install.sh testSLC6"
 )
-cmsswVer=CMSSW_5_3_
 ###################
 function getGitPackage {
 
@@ -21,11 +20,11 @@ fi
 
 echo "Installing/Updating SC analysis "
 #
-if [ "X$SCRAM_ARCH" != "Xslc6_amd64_gcc472" ]; then 
+if [ "X$SCRAM_ARCH" != "Xslc6_amd64_gcc472" -a "X$SCRAM_ARCH" != "Xslc5_amd64_gcc434" ]; then 
   echo "missing/wrong SCRAM_ARCH: $SCRAM_ARCH"
   exit 1
 fi
-if [ ! "$CMSSW_BASE" =~ "CMSSW_5_3_"  -a ! "$CMSSW_BASE" =~ "CMSSW_4_2_7"]; then
+if [[ ! "$CMSSW_BASE" =~ "CMSSW_5_3_" ]] && [[ ! "$CMSSW_BASE" =~ "CMSSW_4_2_8" ]]; then
   echo "missing CMSSW_BASE cmsenv"
   exit 1
 fi

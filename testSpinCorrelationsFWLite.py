@@ -1,6 +1,6 @@
 import ROOT,math
 from DataFormats.FWLite import Events, Handle
-import getopt, sys, decimal,signal,os
+import getopt, sys, decimal,signal,os,argparse
 sys.path.extend(['/user/hoehle/SpinCHelpers/',os.getenv('HOME')+'/PyRoot_Helpers/'])
 from SpinCorrelationCalculations.CosTheta1Theta2SpinCorrlation_cfi import CosTheta1Theta2
 from SpinCorrelationCalculations.CosPhiSpinCorrlation_cfi import CosPhi
@@ -18,20 +18,19 @@ def mySignalHandler(signal, frame):
  stopIt = True
 signal.signal(signal.SIGINT, mySignalHandler)
 #
-opts, args = getopt.getopt(sys.argv[1:], 'i:p:m:',['inputfile=','postfix=','maxEvents=','skipEvents='])
-postfix=''
-maxEvents=-1; skipEvents=-1
-for opt,arg in opts:
- #print opt , " :   " , arg
- if opt in  ("-i","--inputfile"):
-  filename=arg
- if opt in ("-p","--postfix"):
-  postfix=arg
- if opt in ("-m","--maxEvents"):
-  maxEvents=decimal.Decimal(arg)
- if opt in ("--skipEvents"):
-  skipEvents=decimal.Decimal(arg)
-events = Events (filename)#'patRefSel_muJets_semimuon_ttbar_MoreHyps_Reconstruction_SMAllPART.root')#patRefSel_muJets_nonsemimuon_ttbar_HitFit_Reconstruction.root')
+print "called with these args ",sys.argv
+parser = argparse.ArgumentParser()
+parser.add_argument('--postfix',default=None,help='postfix')
+parser.add_argument('--inputfile',required=True,help='input file')
+parser.add_argument('--skipEvents',default=-1,type=int,help='skip Events')
+parser.add_argument('--maxEvents',default=-1,type=int,help='max Events')
+parser.add_argument('--debug',action='store_true',default=False,help='activate debug modus ')
+parser.add_argument('--reportEvery',default=1000,type=int,help="print every nth event")
+args = parser.parse_known_args();args,notKnownArgs = args
+if args.debug:
+  print "unknow args ",notKnownArgs
+ 
+events = Events (args.inputfile)#'patRefSel_muJets_semimuon_ttbar_MoreHyps_Reconstruction_SMAllPART.root')#patRefSel_muJets_nonsemimuon_ttbar_HitFit_Reconstruction.root')
 handleMyTTbarEvent = Handle('std::vector<std::vector<reco::GenParticle> >')
 labelMyTTbarEvent = ("MyTTbarGenEvent10Parts")#MyTTbarGenEventProd")
 genEvtInfoHandle =  Handle("GenEventInfoProduct");genEvtInfoLabel = "generator"
@@ -41,7 +40,7 @@ ROOT.gROOT.SetBatch()
 ROOT.gROOT.SetStyle('Plain') # white background
 ROOT.gStyle.SetOptStat("emrou"); ROOT.gStyle.SetPalette(1)
 ROOT.gStyle.SetOptFit(1)
-print "using this input ", filename
+print "using this input ", args.inputfile
 h2_cosTheta1Theta2_gen = ROOT.TH2D("h2_cosTheta1Theta2_gen","",11,-1.0,1.0,11,-1.0,1.0)
 h2_cosTheta1Theta2_gen_NoMCWeights = ROOT.TH2D("h2_cosTheta1Theta2_gen_NoMCWeights","",11,-1.0,1.0,11,-1.0,1.0)
 h2_cosTheta1Theta2_gen_lepPtCut = ROOT.TH2D("h2_cosTheta1Theta2_gen_lepPtCut","h2_cosTheta1Theta2_gen_lepPtCut",11,-1.0,1.0,11,-1.0,1.0)
@@ -58,7 +57,7 @@ h1_lepPt = ROOT.TH1D("h1_lepPt","h1_lepPt",200,0,400)
 h1_lepEnergy = ROOT.TH1D("h1_lepEnergy","h1_lepEnergy",250,0,500)
 h1_ptTopPair = ROOT.TH1D("h1_ptTopPair","h1_ptTopPair",200,0,200)
 evtNum=0
-myHists=MyHistManager("testSC",True)
+myHists=MyHistManager("testSC"+("_"+args.postfix if args.postfix and not args.postfix.isspace() else ""),True)
 # weights according to top pt
 topPtWeightFunc = ROOT.TF1("topPtWeightFunc","TMath::Exp(0.199-0.00166*x)")
 #particle choice
@@ -67,11 +66,11 @@ top1Idx=5;b1Idx=6;W1Idx=7;lep1Idx=9;nu1Idx=8;
 topSub=2;bSub=0;WSub=1;lepSub=0;nuSub=0;
 corruptedEvents=0
 for i,event in enumerate(events):
- if i%100 == 0:
+ if i%args.reportEvery == 0 or i == 1:
   print "event: ",i
- if (maxEvents != -1 and i >= maxEvents) or stopIt:
+ if (args.maxEvents != -1 and i >= args.maxEvents) or stopIt:
   break
- if skipEvents >= i:
+ if args.skipEvents >= i:
   continue
  event.getByLabel (labelMyTTbarEvent, handleMyTTbarEvent); myTTbarEvent = handleMyTTbarEvent.product()
  event.getByLabel(genEvtInfoLabel,genEvtInfoHandle); genEvtInfo = genEvtInfoHandle.product()
